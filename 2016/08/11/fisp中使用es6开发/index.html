@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>fisp中使用es6开发 | 无尽的边界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景
+当前浏览器对es6的支持不一致，且部分功能浏览器还未支持（如Module相关），因此需要引入babel转码器，转换为es5语法;
+fisp默认支持的前端模版bdtmpl，由于严格模式下，eval语句有其自己的作用域，因此使用babel转换的文件会出现错误，因此需要使用新的前端模板替换。错误如下：
+ 1234567891011121314151617var tmpl = [function(_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fisp中使用es6开发">
+<meta property="og:url" content="http://yoursite.com/2016/08/11/fisp中使用es6开发/index.html">
+<meta property="og:site_name" content="无尽的边界">
+<meta property="og:description" content="背景
+当前浏览器对es6的支持不一致，且部分功能浏览器还未支持（如Module相关），因此需要引入babel转码器，转换为es5语法;
+fisp默认支持的前端模版bdtmpl，由于严格模式下，eval语句有其自己的作用域，因此使用babel转换的文件会出现错误，因此需要使用新的前端模板替换。错误如下：
+ 1234567891011121314151617var tmpl = [function(_">
+<meta property="og:updated_time" content="2016-08-11T16:09:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fisp中使用es6开发">
+<meta name="twitter:description" content="背景
+当前浏览器对es6的支持不一致，且部分功能浏览器还未支持（如Module相关），因此需要引入babel转码器，转换为es5语法;
+fisp默认支持的前端模版bdtmpl，由于严格模式下，eval语句有其自己的作用域，因此使用babel转换的文件会出现错误，因此需要使用新的前端模板替换。错误如下：
+ 1234567891011121314151617var tmpl = [function(_">
+  
+    <link rel="alternative" href="/atom.xml" title="无尽的边界" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无尽的边界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fisp中使用es6开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/11/fisp中使用es6开发/" class="article-date">
+  <time datetime="2016-08-11T15:28:55.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具分享/">工具分享</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      fisp中使用es6开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+<li>当前浏览器对es6的支持不一致，且部分功能浏览器还未支持（如Module相关），因此需要引入babel转码器，转换为es5语法;</li>
+<li><p>fisp默认支持的前端模版<a href="http://baidufe.github.io/BaiduTemplate/" target="_blank" rel="external">bdtmpl</a>，由于严格模式下，<code>eval</code>语句有其自己的作用域，因此使用babel转换的文件会出现错误，因此需要使用新的前端模板替换。错误如下：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmpl = [<span class="function"><span class="keyword">function</span>(<span class="params">_template_object</span></span></div><div class="line">    <span class="regexp">/**/</span></div><div class="line">) &#123;</div><div class="line">    <span class="keyword">var</span> _template_fun_array = [];</div><div class="line">    <span class="keyword">var</span> fn = (<span class="function"><span class="keyword">function</span>(<span class="params">__data__</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> _template_varName = <span class="string">''</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> __data__) &#123;</div><div class="line">            _template_varName += (<span class="string">'var '</span> + name + <span class="string">'=__data__["'</span> + name + <span class="string">'"];'</span>);</div><div class="line">        &#125;;</div><div class="line">        <span class="built_in">eval</span>(_template_varName); <span class="comment">// 严格模式下, 作用域与非严格模式不一致，导致错误</span></div><div class="line">        _template_fun_array.push(<span class="string">''</span>);</div><div class="line">        _template_varName = <span class="literal">null</span>;</div><div class="line">    &#125;)(_template_object);</div><div class="line">    fn = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">return</span> _template_fun_array.join(<span class="string">''</span>);</div><div class="line"></div><div class="line">&#125;][<span class="number">0</span>];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="引入babel"><a href="#引入babel" class="headerlink" title="引入babel"></a>引入babel</h2><p>这里使用<a href="https://www.npmjs.com/package/fis-parser-babel-5.x" target="_blank" rel="external">fis-parser-babel-5.x</a>进行解析。es6文件后缀为<code>.es6</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">fis.config.merge(&#123;</div><div class="line">    <span class="attr">project</span>: &#123;</div><div class="line">        <span class="attr">fileType</span>: &#123;</div><div class="line">            <span class="attr">text</span>: <span class="string">'es6'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">modules</span>: &#123;</div><div class="line">        <span class="attr">parser</span>: &#123;</div><div class="line">            <span class="attr">es6</span>: <span class="string">'babel-5.x'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">settings</span>: &#123;</div><div class="line">        <span class="attr">parser</span>: &#123;</div><div class="line">            <span class="string">'babel-5.x'</span>: &#123;</div><div class="line">                <span class="attr">blacklist</span>: [<span class="string">'regenerator'</span>],</div><div class="line">                <span class="attr">optional</span>: [<span class="string">'asyncToGenerator'</span>],</div><div class="line">                <span class="attr">sourceMaps</span>: <span class="literal">true</span>,</div><div class="line">                <span class="attr">stage</span>: <span class="number">3</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">roadmap</span>: &#123;</div><div class="line">        <span class="attr">ext</span>: &#123;</div><div class="line">            <span class="attr">es6</span>: <span class="string">'js'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>项目模块化加载器使用的mod.js，其为amd标准的不完全实现。babel默认的模块编译标准为<code>common</code>，不会为文件包裹上<code>define</code>。尝试将<code>setting.parser[&#39;babel-5.x&#39;]</code>中将<code>modules</code>设置为<code>amd</code>，但无效，因此需要在fis-conf.js为模块进行amd包装。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fis.config.get(<span class="string">'roadmap.path'</span>).unshift(&#123;</div><div class="line">    <span class="attr">reg</span>: <span class="regexp">/.*\.es6$/i</span>,</div><div class="line">    <span class="attr">useMap</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">useHash</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">isMod</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="替换前端模版"><a href="#替换前端模版" class="headerlink" title="替换前端模版"></a>替换前端模版</h2><p>这里使用<a href="https://github.com/yanhaijing/fis-parser-template" target="_blank" rel="external">fis-parser-template</a>来解析模版文件，语法参考<a href="https://github.com/yanhaijing/template.js/blob/master/template.js" target="_blank" rel="external">template.js</a>。 项目中bdtmpl的文件后缀为<code>.tmpl</code>，为避免与之冲突，这里使用<code>.wtpl</code>作为es6文件的前端模版后缀。fis-conf.js做以下配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">fis.config.merge(&#123;</div><div class="line">    <span class="attr">project</span>: &#123;</div><div class="line">        <span class="attr">fileType</span>: &#123;</div><div class="line">            <span class="attr">text</span>: <span class="string">'es6, wtpl'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">modules</span>: &#123;</div><div class="line">        <span class="attr">parser</span>: &#123;</div><div class="line">            <span class="attr">es6</span>: <span class="string">'babel-5.x'</span>,</div><div class="line">            <span class="attr">wtpl</span>: <span class="string">'template'</span></div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">settings</span>: &#123;</div><div class="line">        <span class="attr">parser</span>: &#123;</div><div class="line">            <span class="string">'babel-5.x'</span>: &#123;</div><div class="line">                <span class="attr">blacklist</span>: [<span class="string">'regenerator'</span>],</div><div class="line">                <span class="attr">optional</span>: [<span class="string">'asyncToGenerator'</span>],</div><div class="line">                <span class="attr">sourceMaps</span>: <span class="literal">true</span>,</div><div class="line">                <span class="attr">stage</span>: <span class="number">3</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'template'</span>: &#123;</div><div class="line">                <span class="attr">sTag</span>: <span class="string">'&lt;#'</span>,</div><div class="line">                <span class="attr">eTag</span>: <span class="string">'#&gt;'</span>,</div><div class="line">                <span class="attr">global</span>: <span class="string">'template'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">roadmap</span>: &#123;</div><div class="line">        <span class="attr">ext</span>: &#123;</div><div class="line">            <span class="attr">es6</span>: <span class="string">'js'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后，需要在页面中引入<a href="https://github.com/yanhaijing/template.js/blob/master/template.js" target="_blank" rel="external">template.js</a>，不使用<code>umd</code>包装，将其暴露在<code>window</code>上。如下修改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">root, factory</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> template = factory(root);</div><div class="line">    <span class="comment">// if (typeof define === 'function' &amp;&amp; define.amd) &#123;</span></div><div class="line">    <span class="comment">//    // AMD</span></div><div class="line">    <span class="comment">//    define('template', function() &#123;</span></div><div class="line">    <span class="comment">//        return template;</span></div><div class="line">    <span class="comment">//    &#125;);</span></div><div class="line">    <span class="comment">// &#125; else if (typeof exports === 'object') &#123;</span></div><div class="line">    <span class="comment">//    // Node.js</span></div><div class="line">    <span class="comment">//    module.exports = template;</span></div><div class="line">    <span class="comment">// &#125; else &#123;</span></div><div class="line">        <span class="comment">// Browser globals</span></div><div class="line">        <span class="keyword">var</span> _template = root.template;</div><div class="line"></div><div class="line">        template.noConflict = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (root.template === template) &#123;</div><div class="line">                root.template = _template;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> template;</div><div class="line">        &#125;;</div><div class="line">        root.template = template;</div><div class="line">    <span class="comment">// &#125;</span></div><div class="line">&#125;(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>最后，需要配置fis-conf.js，使所有<code>.wtpl</code>拥有js相关扩展，否则通过<code>__inline()</code>引入后，是个纯字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fis.config.get(<span class="string">'roadmap.path'</span>).unshift(&#123;</div><div class="line">    <span class="attr">reg</span>: <span class="regexp">/.*\.wtpl$/i</span>,</div><div class="line">    <span class="attr">isJsLike</span>: <span class="literal">true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>fis编译机上已安装所需要的fis-parser-babel-5.x和fis-parser-template插件，所以不用在本地编译啦~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="cixga14p50001i90aasv2otrs" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2016/08/11/fisp中使用es6开发/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/24/模块化开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">模块化开发</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+ 
+  <section id="comments">
+    <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="2016/08/11/fisp中使用es6开发/" data-title="fisp中使用es6开发" data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lizijie1993"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具分享/">工具分享</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-blog/">Hexo blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu-软件/">ubuntu 软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化-requireJS/">模块化 requireJS</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/Hexo-blog/" style="font-size: 10px;">Hexo blog</a> <a href="/tags/fisp-es6-template-js/" style="font-size: 10px;">fisp es6 template.js</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/ubuntu-软件/" style="font-size: 10px;">ubuntu 软件</a> <a href="/tags/模块化-requireJS/" style="font-size: 10px;">模块化 requireJS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/11/fisp中使用es6开发/">fisp中使用es6开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/24/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/使用Hexo搭建blog/">使用Hexo搭建blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 lizijie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'bordersofinfinity';
+  
+  var disqus_url = 'http://yoursite.com/2016/08/11/fisp中使用es6开发/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

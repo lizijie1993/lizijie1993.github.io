@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax学习笔记 | 无尽的边界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是Ajax从字面意义来说，Ajax（Asynchronous JavaScript and XML）为异步的 JavaScript 和 XML利用。它并不是一种新的编程语言，而是利用现有标准，无阻塞地与服务器进行数据交换的方法。
+不同浏览器的实现创建XMLHttpRequset对象123456789101112131415161718var xhr = createXHR();function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax学习笔记">
+<meta property="og:url" content="http://yoursite.com/2015/10/22/Ajax学习笔记/index.html">
+<meta property="og:site_name" content="无尽的边界">
+<meta property="og:description" content="什么是Ajax从字面意义来说，Ajax（Asynchronous JavaScript and XML）为异步的 JavaScript 和 XML利用。它并不是一种新的编程语言，而是利用现有标准，无阻塞地与服务器进行数据交换的方法。
+不同浏览器的实现创建XMLHttpRequset对象123456789101112131415161718var xhr = createXHR();function">
+<meta property="og:updated_time" content="2015-10-22T15:56:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax学习笔记">
+<meta name="twitter:description" content="什么是Ajax从字面意义来说，Ajax（Asynchronous JavaScript and XML）为异步的 JavaScript 和 XML利用。它并不是一种新的编程语言，而是利用现有标准，无阻塞地与服务器进行数据交换的方法。
+不同浏览器的实现创建XMLHttpRequset对象123456789101112131415161718var xhr = createXHR();function">
+  
+    <link rel="alternative" href="/atom.xml" title="无尽的边界" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无尽的边界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ajax学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/22/Ajax学习笔记/" class="article-date">
+  <time datetime="2015-10-22T14:20:00.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h1><p>从字面意义来说，Ajax（Asynchronous JavaScript and XML）为异步的 JavaScript 和 XML利用。它并不是一种新的编程语言，而是<em>利用现有标准，无阻塞地与服务器进行数据交换</em>的方法。</p>
+<h1 id="不同浏览器的实现"><a href="#不同浏览器的实现" class="headerlink" title="不同浏览器的实现"></a>不同浏览器的实现</h1><h2 id="创建XMLHttpRequset对象"><a href="#创建XMLHttpRequset对象" class="headerlink" title="创建XMLHttpRequset对象"></a>创建XMLHttpRequset对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = createXHR();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> xhr;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequset)&#123;</div><div class="line">		xhr = <span class="keyword">new</span> XMLHttpRequset();</div><div class="line">	&#125;<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			<span class="comment">//IE6</span></div><div class="line">			xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">		&#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">			xhr = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> xhr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="请求的基本流程"><a href="#请求的基本流程" class="headerlink" title="请求的基本流程"></a>请求的基本流程</h2><ol>
+<li>建立连接</li>
+<li>设置回调</li>
+<li>发送数据</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建立连接</span></div><div class="line">xhr.open(method,url,<span class="keyword">async</span>);</div><div class="line"><span class="comment">//设置回调</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"><span class="comment">//发送数据</span></div><div class="line">xhr.send(string);</div></pre></td></tr></table></figure>
+<p>建立连接的method常用为<code>GET</code>，<code>POST</code>。</p>
+<p>当使用<code>POST</code>方法时，需要在<code>send()</code>前添加HTTP请求头。例如，若想像HTML表单那样POST数据，需要：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.setRequsetHeader(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</div><div class="line">xhr.send(<span class="string">'name=1&amp;age=18'</span>);</div></pre></td></tr></table></figure>
+<h2 id="监听当前状态"><a href="#监听当前状态" class="headerlink" title="监听当前状态"></a>监听当前状态</h2><p>通过<code>xhr.readyState</code>可当前状态，有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>UNSENT (未打开)</td>
+<td>open()方法还未被调用.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED  (未发送)</td>
+<td>send()方法还未被调用.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED (已获取响应头)</td>
+<td>send()方法已经被调用, 响应头和响应状态已经返回.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING (正在下载响应体)</td>
+<td>响应体下载中; responseText中已经获取了部分数据.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE (请求完成)</td>
+<td>整个请求过程已经完毕.</td>
+</tr>
+</tbody>
+</table>
+<p>在此，我们主要关注4。</p>
+<p>通过<code>xhr.status</code>可获得响应的状态码，例如    200 表示成功的请求。</p>
+<p>每次请求状态发生改变，均会触发<code>onreadystatechange</code>，因此，在该回调中，通过判断<code>xhr.readyState</code>和<code>xhr.status</code>来执行不同的业务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//请求成功</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'success!'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>请求成功后，若返回的数据格式为字符串，可通过<code>xhr.responseText</code>获得；若返回的数据格式为xml，可通过<code>xhr.responseXML</code>获得。</p>
+<h1 id="XMLHttpRequset-2-0"><a href="#XMLHttpRequset-2-0" class="headerlink" title="XMLHttpRequset 2.0"></a>XMLHttpRequset 2.0</h1><p>老版本缺点：</p>
+<ul>
+<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
+<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
+<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据。</li>
+</ul>
+<p>新版本功能：</p>
+<ul>
+<li>可以设置HTTP请求的时限。</li>
+<li>可以使用FormData对象管理表单数据。</li>
+<li>可以上传文件。</li>
+<li>可以请求不同域名下的数据（跨域请求）。</li>
+<li>可以获取服务器端的二进制数据。</li>
+<li>可以获得数据传输的进度信息。</li>
+</ul>
+<p>对于文件传输，我暂时还不太了解。目前我比较关注<em>进度信息</em>和<em>跨域请求</em>。</p>
+<h2 id="进度信息"><a href="#进度信息" class="headerlink" title="进度信息"></a>进度信息</h2><p>新版本的XMLHttpRequest对象，传送数据的时候，有一个progress事件，用来返回进度信息。它分成上传和下载两种情况。下载的progress事件属于XMLHttpRequest对象，上传的progress事件属于XMLHttpRequest.upload对象。<br>我们先定义progress事件的回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　xhr.onprogress = updateProgress;</div><div class="line">　　xhr.upload.onprogress = updateProgress;</div></pre></td></tr></table></figure>
+<p>然后，在回调函数里面，使用这个事件的一些属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateProgress</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (event.lengthComputable) &#123;</div><div class="line">		<span class="keyword">var</span> percentComplete = event.loaded / event.total;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的代码中，<code>event.total</code>是需要传输的总字节，<code>event.loaded</code>是已经传输的字节。如果<code>event.lengthComputable</code>不为真，则<code>event.total</code>等于0。</p>
+<p>与progress事件相关的，还有其他五个事件，可以分别指定回调函数：</p>
+<ul>
+<li>load事件：传输成功完成。</li>
+<li>abort事件：传输被用户取消。</li>
+<li>error事件：传输中出现错误。</li>
+<li>loadstart事件：传输开始。</li>
+<li>loadEnd事件：传输结束，但是不知道成功还是失败。</li>
+</ul>
+<h2 id="跨域请求——跨域资源共享（CORS）"><a href="#跨域请求——跨域资源共享（CORS）" class="headerlink" title="跨域请求——跨域资源共享（CORS）"></a>跨域请求——跨域资源共享（CORS）</h2><p>Ajax请求数据的时候，遵循同源策略。</p>
+<p>使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。</p>
+<p>服务器端对于CORS的支持，主要就是通过设置<code>Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。</p>
+<p>服务器端响应头需要设置的参数：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-<span class="string">Origin:</span><span class="string">http:</span><span class="comment">//a.com;</span></div><div class="line">Access-Control-Allow-<span class="string">Methods:</span>POST,GET;</div></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" target="_blank" rel="external">MDN XMLHttpRequest</a></p>
+<p><a href="http://www.cnblogs.com/yexiaochai/archive/2013/04/24/3037069.html" target="_blank" rel="external">【初窥javascript奥秘之Ajax】简述下你所知道的Ajax？</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html" target="_blank" rel="external">XMLHttpRequest Level 2 使用指南</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="cixga14p00000i90a1byrv6ps" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2015/10/22/Ajax学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/23/zepto中Ajax模块学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          zepto中Ajax模块学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/27/使用Hexo搭建blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Hexo搭建blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+ 
+  <section id="comments">
+    <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="2015/10/22/Ajax学习笔记/" data-title="Ajax学习笔记" data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lizijie1993"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具分享/">工具分享</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-blog/">Hexo blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu-软件/">ubuntu 软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化-requireJS/">模块化 requireJS</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/Hexo-blog/" style="font-size: 10px;">Hexo blog</a> <a href="/tags/fisp-es6-template-js/" style="font-size: 10px;">fisp es6 template.js</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/ubuntu-软件/" style="font-size: 10px;">ubuntu 软件</a> <a href="/tags/模块化-requireJS/" style="font-size: 10px;">模块化 requireJS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/11/fisp中使用es6开发/">fisp中使用es6开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/24/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/27/使用Hexo搭建blog/">使用Hexo搭建blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 lizijie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'bordersofinfinity';
+  
+  var disqus_url = 'http://yoursite.com/2015/10/22/Ajax学习笔记/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
