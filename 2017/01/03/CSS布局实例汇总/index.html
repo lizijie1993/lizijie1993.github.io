@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS布局实例汇总 | 无尽的边界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="水平居中See the Pen mRdeaG by lizijie (@lizijie1993) on CodePen.
+
+
+垂直居中See the Pen oBNLjB by lizijie (@lizijie1993) on CodePen.
+
+
+圣杯布局（双飞翼布局）要求：
+
+三列布局，中间宽度自适应，两边定宽；
+中间栏要在浏览器中优先展示渲染；
+允许任意列的高度最高；
+
+See the P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局实例汇总">
+<meta property="og:url" content="http://yoursite.com/2017/01/03/CSS布局实例汇总/index.html">
+<meta property="og:site_name" content="无尽的边界">
+<meta property="og:description" content="水平居中See the Pen mRdeaG by lizijie (@lizijie1993) on CodePen.
+
+
+垂直居中See the Pen oBNLjB by lizijie (@lizijie1993) on CodePen.
+
+
+圣杯布局（双飞翼布局）要求：
+
+三列布局，中间宽度自适应，两边定宽；
+中间栏要在浏览器中优先展示渲染；
+允许任意列的高度最高；
+
+See the P">
+<meta property="og:updated_time" content="2017-01-04T00:15:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局实例汇总">
+<meta name="twitter:description" content="水平居中See the Pen mRdeaG by lizijie (@lizijie1993) on CodePen.
+
+
+垂直居中See the Pen oBNLjB by lizijie (@lizijie1993) on CodePen.
+
+
+圣杯布局（双飞翼布局）要求：
+
+三列布局，中间宽度自适应，两边定宽；
+中间栏要在浏览器中优先展示渲染；
+允许任意列的高度最高；
+
+See the P">
+  
+    <link rel="alternative" href="/atom.xml" title="无尽的边界" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无尽的边界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS布局实例汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/03/CSS布局实例汇总/" class="article-date">
+  <time datetime="2017-01-03T14:17:10.000Z" itemprop="datePublished">2017-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS布局实例汇总
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#水平居中"><span class="toc-number">1.</span> <span class="toc-text">水平居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垂直居中"><span class="toc-number">2.</span> <span class="toc-text">垂直居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圣杯布局（双飞翼布局）"><span class="toc-number">3.</span> <span class="toc-text">圣杯布局（双飞翼布局）</span></a></li></ol>
+          </div>
+        
+        <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p></p><p data-height="265" data-theme-id="0" data-slug-hash="mRdeaG" data-default-tab="css,result" data-user="lizijie1993" data-embed-version="2" data-pen-title="mRdeaG" class="codepen">See the Pen <a href="http://codepen.io/lizijie1993/pen/mRdeaG/" target="_blank" rel="external">mRdeaG</a> by lizijie (<a href="http://codepen.io/lizijie1993" target="_blank" rel="external">@lizijie1993</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><p></p><p data-height="265" data-theme-id="0" data-slug-hash="oBNLjB" data-default-tab="css,result" data-user="lizijie1993" data-embed-version="2" data-pen-title="oBNLjB" class="codepen">See the Pen <a href="http://codepen.io/lizijie1993/pen/oBNLjB/" target="_blank" rel="external">oBNLjB</a> by lizijie (<a href="http://codepen.io/lizijie1993" target="_blank" rel="external">@lizijie1993</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="圣杯布局（双飞翼布局）"><a href="#圣杯布局（双飞翼布局）" class="headerlink" title="圣杯布局（双飞翼布局）"></a>圣杯布局（双飞翼布局）</h2><p>要求：</p>
+<ol>
+<li>三列布局，中间宽度自适应，两边定宽；</li>
+<li>中间栏要在浏览器中优先展示渲染；</li>
+<li>允许任意列的高度最高；</li>
+</ol>
+<p></p><p data-height="307" data-theme-id="0" data-slug-hash="VPwpGN" data-default-tab="html,result" data-user="lizijie1993" data-embed-version="2" data-pen-title="VPwpGN" class="codepen">See the Pen <a href="https://codepen.io/lizijie1993/pen/VPwpGN/" target="_blank" rel="external">VPwpGN</a> by lizijie (<a href="http://codepen.io/lizijie1993" target="_blank" rel="external">@lizijie1993</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="cixhp9cm20001200a9smrxbbj" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/03/CSS布局实例汇总/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/11/fisp中使用es6开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">fisp中使用es6开发</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+ 
+  <section id="comments">
+    <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="2017/01/03/CSS布局实例汇总/" data-title="CSS布局实例汇总" data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lizijie1993"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具分享/">工具分享</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-blog/">Hexo blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu-软件/">ubuntu 软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化-requireJS/">模块化 requireJS</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/Hexo-blog/" style="font-size: 10px;">Hexo blog</a> <a href="/tags/fisp-es6-template-js/" style="font-size: 10px;">fisp es6 template.js</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/ubuntu-软件/" style="font-size: 10px;">ubuntu 软件</a> <a href="/tags/模块化-requireJS/" style="font-size: 10px;">模块化 requireJS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/03/CSS布局实例汇总/">CSS布局实例汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/fisp中使用es6开发/">fisp中使用es6开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/24/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 lizijie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'bordersofinfinity';
+  
+  var disqus_url = 'http://yoursite.com/2017/01/03/CSS布局实例汇总/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
