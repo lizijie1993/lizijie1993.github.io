@@ -58,6 +58,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React更新日志" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/25/React更新日志/" class="article-date">
+  <time datetime="2017-01-25T02:59:35.000Z" itemprop="datePublished">2017-01-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/25/React更新日志/">React更新日志</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录涉及到代码变更的更新，忽略小版本bug fix。</p>
+<h2 id="15-0-0-gt-15-4-0"><a href="#15-0-0-gt-15-4-0" class="headerlink" title="15.0.0 -&gt; 15.4.0"></a>15.0.0 -&gt; 15.4.0</h2><ul>
+<li>完全分离 React 和 React DOM</li>
+<li>在chrome timeline 形象地展示组件详情</li>
+<li>Snapshot Testing 中支持mock refs</li>
+</ul>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><ul>
+<li>不再隐式包含 React DOM</li>
+<li>必须的（required）<code>PropTypes</code>不能为<code>null</code>和<code>undefined</code>，并给出提示</li>
+<li>通过冻结<code>children</code>替换复制，提升了开发性能</li>
+</ul>
+<h3 id="React-DOM"><a href="#React-DOM" class="headerlink" title="React DOM"></a>React DOM</h3><ul>
+<li>修复使用React DOM时使用 浅渲染器 偶尔会出现测试失败的问题 ？</li>
+<li>新增对无效的 <code>aria-</code> 属性的警告</li>
+<li>新增使用<code>autofocus</code>而不是<code>autoFocus</code>的警告</li>
+<li>移除垫片 <code>String.prototype.split</code> 的警告</li>
+<li>阐明未手动声明 <code>PropTypes</code> 的警告 ？</li>
+<li>不稳定的 <code>batchedUpdates</code> API ？</li>
+<li>修复IE8下更新文本的bug</li>
+</ul>
+<h3 id="React-Perf"><a href="#React-Perf" class="headerlink" title="React Perf"></a>React Perf</h3><ul>
+<li>当启动 ReactPerf 时，可以在chrome timeline中看到组件渲染的相对时间花费图表</li>
+</ul>
+<h3 id="React-Test-Utils"><a href="#React-Test-Utils" class="headerlink" title="React Test Utils"></a>React Test Utils</h3><ul>
+<li>在<code>input disabled onClick={foo} /&gt;</code> 调用 <code>Simulate.click()</code> ，<code>foo</code>会执行（以前不会）</li>
+</ul>
+<h3 id="React-Test-Renderer"><a href="#React-Test-Renderer" class="headerlink" title="React Test Renderer"></a>React Test Renderer</h3><ul>
+<li>由于打包策略变更，在同一文件中与 React DOM 一起被引入时，不会崩溃</li>
+<li><code>ReactTestRenderer.create()</code> 现在接受可选参数 <code>{createNodeMock: element =&gt; mock}</code>。现在可以使用 snapshot testing 来mock refs</li>
+</ul>
+<h2 id="0-14-8-gt-15-0-0"><a href="#0-14-8-gt-15-0-0" class="headerlink" title="0.14.8 -&gt; 15.0.0"></a>0.14.8 -&gt; 15.0.0</h2><h3 id="变更日志"><a href="#变更日志" class="headerlink" title="变更日志"></a>变更日志</h3><ul>
+<li>移除大部分<code>data-reactid</code><br>因使用<code>document.createElement</code>替代<code>node.innerHTML</code></li>
+<li>文本外层不再附加一层<code>&lt;span&gt;</code><br>可能会影响到部分css</li>
+<li>使用 注释节点 渲染<code>null</code>，原本使用<code>&lt;noscript&gt;</code>标签渲染<br>会影响部分css，如<code>:nth-child</code></li>
+<li>函数式组件支持返回<code>null</code></li>
+<li>提升对SVG的支持，jsx支持所有SVG标签和属性</li>
+<li><code>React.cloneElement()</code>解析<code>defaultProps</code>修复了bug：当传入<code>props</code>的属性值为<code>undefined</code>，不会应用<code>defaultProps</code>上对应的值</li>
+<li><code>ReactPerf.getLastMeasurement()</code>返回值变更，不建议依赖该返回值</li>
+</ul>
+<h3 id="废弃"><a href="#废弃" class="headerlink" title="废弃"></a>废弃</h3><ul>
+<li>React移除api：<code>findDOMNode</code>, <code>render</code>, <code>renderToString</code>, <code>renderToStaticMarkup</code>, <code>unmountComponentAtNode</code>，迁移至 ReactDOM, ReactDOMServer</li>
+<li>移除addons：<code>batchedUpdates</code>, <code>cloneWithProps</code></li>
+<li>移除react组件实例方法：<code>setProps</code>, <code>replaceProps</code>, <code>getDOMNode</code></li>
+<li>移除 <code>react/addons</code> 入口，以 <code>react-addons-*</code> 包替代</li>
+<li>传递 <code>children</code> 给void element（如input），现在会报错 ？</li>
+<li>不再支持从通过 <code>refs</code> 取得的dom上取 react特定的属性 （如 <code>this.refs.div.props</code>） ？</li>
+</ul>
+<h3 id="新的废弃（React16完全移除）"><a href="#新的废弃（React16完全移除）" class="headerlink" title="新的废弃（React16完全移除）"></a>新的废弃（React16完全移除）</h3><ul>
+<li>移除：<code>LinkedStateMixin</code>，<code>valueLink</code>。需自行通过wrapper组件替代，如（react-linked-input ） ？</li>
+<li><code>&lt;input value={null} &gt;</code> <code>null</code>值视作清空该input。React 0.14会忽略null值，React 15会警告，需要显示使用空字符串清空或使用<code>undefined</code>视作未传值</li>
+<li><code>ReactPerf.printDOM()</code> 更名为 <code>ReactPerf.printOperations()</code>，<code>ReactPerf.getMeasurementsSummaryMap()</code> 更名为 <code>ReactPerf.getWasted()</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/25/React更新日志/" data-id="ciycdrnii0001wz0ar700joyb" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/25/React更新日志/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+    <article id="post-烘焙材料准备技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/09/烘焙材料准备技巧/" class="article-date">
+  <time datetime="2017-01-09T13:13:40.000Z" itemprop="datePublished">2017-01-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/生活/">生活</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/09/烘焙材料准备技巧/">烘焙材料准备技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="打发黄油"><a href="#打发黄油" class="headerlink" title="打发黄油"></a>打发黄油</h2><p><a href="https://kitchenstories.io/zh/shi-pin/ru-he-da-fa-huang-you-he-tang" target="_blank" rel="external">kitchenstories 台式搅拌器打发黄油</a></p>
+<h2 id="打发淡奶油"><a href="#打发淡奶油" class="headerlink" title="打发淡奶油"></a>打发淡奶油</h2><p><a href="https://www.youtube.com/watch?v=ZnfOYdRRVy8" target="_blank" rel="external">优雅烘焙 如何在家打出稳定淡奶油</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/09/烘焙材料准备技巧/" data-id="ciycdrnjg000mwz0ac5e5yu28" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/09/烘焙材料准备技巧/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/烘焙/">烘焙</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
     <article id="post-CSS布局实例汇总" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/03/CSS布局实例汇总/" class="article-date">
@@ -108,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="cixi7qj4e00011k0aiwz7mcju" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="ciycdrnit0004wz0amj2wxf8q" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/03/CSS布局实例汇总/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -167,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="cixi7qj5300041k0ak6fbe3fd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="ciycdrniz0005wz0aqn55620a" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2016/08/11/fisp中使用es6开发/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -247,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="cixi7qj5u000g1k0a9e59kvtv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="ciycdrnjd000hwz0ac4g9x46h" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/24/模块化开发/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -325,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/" data-id="cixi7qj5m000a1k0amuxgjp9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/" data-id="ciycdrnj7000cwz0acviqajkx" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -459,7 +601,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="cixi7qj4200001k0aa5wjirnn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="ciycdrnid0000wz0ak9876iuf" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/22/Ajax学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -581,7 +723,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/使用Hexo搭建blog/" data-id="cixi7qj5p000c1k0a2vp1lf0m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/使用Hexo搭建blog/" data-id="ciycdrnjb000fwz0ax8v9kyhw" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/27/使用Hexo搭建blog/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -661,7 +803,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/" data-id="cixi7qj5j00061k0aplcoxssb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/" data-id="ciycdrnj5000awz0agqrqc74y" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -765,7 +907,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/08/grunt使用入门/" data-id="cixi7qj5c00051k0a4g0r8hsj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/08/grunt使用入门/" data-id="ciycdrnj30006wz0axfgs3y6z" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/08/grunt使用入门/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -788,7 +930,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具分享/">工具分享</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具分享/">工具分享</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -797,7 +939,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-blog/">Hexo blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu-软件/">ubuntu 软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化-requireJS/">模块化 requireJS</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-blog/">Hexo blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp-es6-template-js/">fisp es6 template.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu-软件/">ubuntu 软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化-requireJS/">模块化 requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -806,7 +948,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/Hexo-blog/" style="font-size: 10px;">Hexo blog</a> <a href="/tags/fisp-es6-template-js/" style="font-size: 10px;">fisp es6 template.js</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/ubuntu-软件/" style="font-size: 10px;">ubuntu 软件</a> <a href="/tags/模块化-requireJS/" style="font-size: 10px;">模块化 requireJS</a>
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/Hexo-blog/" style="font-size: 10px;">Hexo blog</a> <a href="/tags/fisp-es6-template-js/" style="font-size: 10px;">fisp es6 template.js</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/ubuntu-软件/" style="font-size: 10px;">ubuntu 软件</a> <a href="/tags/模块化-requireJS/" style="font-size: 10px;">模块化 requireJS</a> <a href="/tags/烘焙/" style="font-size: 10px;">烘焙</a>
     </div>
   </div>
 
@@ -815,7 +957,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -827,6 +969,14 @@
       <ul>
         
           <li>
+            <a href="/2017/01/25/React更新日志/">React更新日志</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/09/烘焙材料准备技巧/">烘焙材料准备技巧</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/03/CSS布局实例汇总/">CSS布局实例汇总</a>
           </li>
         
@@ -836,14 +986,6 @@
         
           <li>
             <a href="/2015/10/24/模块化开发/">模块化开发</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
           </li>
         
       </ul>
