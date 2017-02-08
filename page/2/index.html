@@ -58,6 +58,208 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用Hexo搭建blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/27/使用Hexo搭建blog/" class="article-date">
+  <time datetime="2015-08-27T15:48:37.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/使用Hexo搭建blog/">使用Hexo搭建blog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hexo是一个逼格很高的，基于node.js的博客框架，其操作十分简单，从新建写作内容，到部署到网站，只需仅仅几个命令！本人在寻找能在Github Pages部署博客的框架过程中发现它的，在此记录平常写博客时常用的命令。</p>
+<h2 id="官网传送门"><a href="#官网传送门" class="headerlink" title="官网传送门"></a>官网传送门</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo 官网</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装前，需要检查电脑中已安装：</p>
+<ul>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<p>若已经安装，那么可以通过以下一条命令，安装 Hexo：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><p>Hexo写作支持markdown，这也是我写作时使用的语法。</p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>使用 <code>new</code> 指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>该部分内容处于文章顶部 <code>---</code> 的上部，用于<strong>描述</strong>整篇文章。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>布局</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>覆盖文章网址</td>
+</tr>
+</tbody>
+</table>
+<p>对于以上 <em>不适用于分页</em> 及 <code>permalink</code> ，本人还不太清楚，之后遇到并解决问题后，再来更新。</p>
+<h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><p>使用以下命令，生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>部署前，先安装 <code>hexo-deployer-git</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>然后修改_config.yml中的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
+<p>最后以下命令，一键部署到服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>在本地搭建服务器，然后以http协议打开，来在本地查看效果：<br>安装 hexo-server：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-server --save</div></pre></td></tr></table></figure>
+<p>启动服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>在浏览器地址中，输入 <code>http://localhost:4000</code> 即可查看。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>本文简介了使用hexo写blog时需要用到的内容，详细内容还请参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">官方文档</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/27/使用Hexo搭建blog/" data-id="ciywdb6g3000pqq0azdh2zz2g" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2015/08/27/使用Hexo搭建blog/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+    <article id="post-ubuntu常用软件安装记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/09/ubuntu常用软件安装记录/" class="article-date">
+  <time datetime="2015-07-09T15:37:14.000Z" itemprop="datePublished">2015-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/09/ubuntu常用软件安装记录/">ubuntu常用软件安装记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人安装的为64位ubuntu14.04。</p>
+<h2 id="搜狗拼音"><a href="#搜狗拼音" class="headerlink" title="搜狗拼音"></a>搜狗拼音</h2><p>转自<a href="http://jingyan.baidu.com/article/ad310e80ae6d971849f49ed3.html" target="_blank" rel="external">百度经验 Ubuntu14.04安装搜狗输入法</a></p>
+<ol>
+<li><a href="&quot;http://pinyin.sogou.com/linux/?r=pinyin&quot;">搜狗拼音官网</a>下载系统适用版本；</li>
+<li>双击下载的 <em>.deb</em> 包，进入软件中心安装；</li>
+<li>终端输入im-config，点击 <em>OK</em> 、 <em>YES</em> ,然后选择 <em>fcitx</em>，点击 <em>OK</em>；</li>
+<li>重启电脑；</li>
+<li>终端输入 <code>fcitx-config-gtk3</code>，点击左下角的 <em>+</em>，取消 <em>Only Show Current Language</em> 前的勾，找到刚刚安装的 sogou拼音，点击OK。</li>
+</ol>
+<h2 id="Sublime-Text-3"><a href="#Sublime-Text-3" class="headerlink" title="Sublime Text 3"></a>Sublime Text 3</h2><ol>
+<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3 官网</a>下载对应版本的安装包（.deb）；</li>
+<li>双击下载的 <code>.deb</code> 包，进入软件中心安装；</li>
+<li>安装各类插件，见<a href=""></a>；</li>
+<li>使其支持输入中文，方法如下：</li>
+</ol>
+<h3 id="Ubuntu下支持Sublime-Text-3输入中文"><a href="#Ubuntu下支持Sublime-Text-3输入中文" class="headerlink" title="Ubuntu下支持Sublime Text 3输入中文"></a>Ubuntu下支持Sublime Text 3输入中文</h3><p>转自<br><a href="http://jingyan.baidu.com/article/f3ad7d0ff8731609c3345b3b.html" target="_blank" rel="external">百度经验 Ubuntu下Sublime Text 3解决无法输入中文的方法</a></p>
+<ol>
+<li><p>在某一目录下，新建 <em>sublime_imfix.c</em> 文件，输入以下内容：</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtkimcontext.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_im_context_set_client_window</span> <span class="params">(GtkIMContext *context,</span></span></div><div class="line">         GdkWindow    *window)</div><div class="line">&#123;</div><div class="line"> GtkIMContextClass *klass;</div><div class="line"> g_return_if_fail (GTK_IS_IM_CONTEXT (context));</div><div class="line"> klass = GTK_IM_CONTEXT_GET_CLASS (context);</div><div class="line"> <span class="keyword">if</span> (klass-&gt;set_client_window)</div><div class="line">   klass-&gt;set_client_window (context, window);</div><div class="line"> g_object_set_data(G_OBJECT(context),<span class="string">"window"</span>,window);</div><div class="line"> <span class="keyword">if</span>(!GDK_IS_WINDOW (window))</div><div class="line">   <span class="keyword">return</span>;</div><div class="line"> <span class="keyword">int</span> width = gdk_window_get_width(window);</div><div class="line"> <span class="keyword">int</span> height = gdk_window_get_height(window);</div><div class="line"> <span class="keyword">if</span>(width != <span class="number">0</span> &amp;&amp; height !=<span class="number">0</span>)</div><div class="line">   gtk_im_context_focus_in(context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将上一步的代码编译成共享库 <em>libsublime-imfix.so</em>，命令：</p>
+<p> <code>gcc -shared -o libsublime-imfix.so sublime_imfix.c  `pkg-config --libs --cflags gtk+-2.0` -fPIC</code>  </p>
+<p> 注：需要先使用 <code>sudo apt-get install</code> 安装 <em>gcc</em>、<em>gtk+-2.0</em></p>
+</li>
+<li><p>将 <em>libsublime-imfix.so</em> 拷贝到 <em>sublime_text</em> 所在文件夹：</p>
+<p> <code>sudo mv libsublime-imfix.so /opt/sublime_text/</code></p>
+</li>
+<li><p>修改文件 <em>/usr/bin/subl</em> 的内容：</p>
+<p> <code>sudo gedit /usr/bin/subl</code><br> 将<br> <code>#!/bin/sh  
+ exec /opt/sublime_text/sublime_text &quot;$@&quot;</code><br> 修改为<br> <code>#!/bin/sh  
+ LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text &quot;$@&quot;</code>  </p>
+</li>
+<li><p>修改文件sublime_text.desktop的内容：</p>
+<p> <code>sudo gedit /usr/share/applications/sublime_text.desktop</code><br> 将[Desktop Entry]中的字符串<br> <code>Exec=/opt/sublime_text/sublime_text %F</code><br> 修改为<br> <code>Exec=bash -c &quot;LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text %F&quot;</code><br> 将[Desktop Action Window]中的字符串<br> <code>Exec=/opt/sublime_text/sublime_text -n</code><br> 修改为<br> <code>Exec=bash -c &quot;LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text -n&quot;</code><br> 将[Desktop Action Document]中的字符串<br> <code>Exec=/opt/sublime_text/sublime_text --command new_file</code><br> 修改为<br> <code>Exec=bash -c &quot;LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text --command new_file&quot;</code><br> 注意：<br> 修改时请注意双引号””,否则会导致不能打开带有空格文件名的文件。<br> 此处仅修改了 /usr/share/applications/sublime-text.desktop ，但可以正常使用了。<br> opt/sublime_text/ 目录下的 sublime-text.desktop 可以修改，也可不修改。  </p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/" data-id="ciywdb6fv000iqq0azm31cjcb" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
     <article id="post-grunt使用入门" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/08/grunt使用入门/" class="article-date">
@@ -148,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/08/grunt使用入门/" data-id="ciyd4mt4e000axo0a95nuf9e2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/08/grunt使用入门/" data-id="ciywdb6ft000gqq0a5lkrtdmm" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/08/grunt使用入门/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -175,7 +377,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -184,7 +386,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -193,7 +395,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fisp/" style="font-size: 10px;">fisp</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/requireJS/" style="font-size: 10px;">requireJS</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zepto/" style="font-size: 10px;">zepto</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/构建工具/" style="font-size: 20px;">构建工具</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/烘焙/" style="font-size: 10px;">烘焙</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a>
+      <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fisp/" style="font-size: 10px;">fisp</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/requireJS/" style="font-size: 10px;">requireJS</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zepto/" style="font-size: 10px;">zepto</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/构建工具/" style="font-size: 15px;">构建工具</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/烘焙/" style="font-size: 10px;">烘焙</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a>
     </div>
   </div>
 
@@ -202,7 +404,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -214,6 +416,14 @@
       <ul>
         
           <li>
+            <a href="/2017/02/08/React中ref属性与DOM/">React中ref属性与DOM</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/08/React-Controlled-Components/">React中的Controlled Components &amp; Uncontrolled Components</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/25/ReactDOM/">ReactDOM</a>
           </li>
         
@@ -223,14 +433,6 @@
         
           <li>
             <a href="/2017/01/09/烘焙材料准备技巧/">烘焙材料准备技巧</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/03/CSS布局实例汇总/">CSS布局实例汇总</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/11/fisp中使用es6开发/">fisp中使用es6开发</a>
           </li>
         
       </ul>
