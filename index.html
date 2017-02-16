@@ -58,6 +58,118 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React-Children" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/09/React-Children/" class="article-date">
+  <time datetime="2017-02-09T07:10:03.000Z" itemprop="datePublished">2017-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/React-Children/">React.Children</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://facebook.github.io/react/docs/react-api.html#react.children" target="_blank" rel="external">React Top-Level API</a></p>
+<h2 id="React-Children"><a href="#React-Children" class="headerlink" title="React.Children"></a>React.Children</h2><p><code>React.Children</code>提供一系列处理<code>this.props.children</code>的工具。</p>
+<h3 id="React-Children-map"><a href="#React-Children-map" class="headerlink" title="React.Children.map"></a>React.Children.map</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.map(children, function[(thisArg)])</div></pre></td></tr></table></figure>
+<p>对<code>children</code>中每个<em>直接</em>子元素调用函数，<code>thisArg</code>指向这个元素。若<code>children</code>为有序片段或数组则会遍历执行函数：不会传入容器对象到函数中。若<code>children</code>为<code>null</code>或<code>undefined</code>，则返回值为<code>null</code>或<code>undefined</code>，而非数组。</p>
+<h3 id="React-Children-forEach"><a href="#React-Children-forEach" class="headerlink" title="React.Children.forEach"></a>React.Children.forEach</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.forEach(children, function[(thisArg)])</div></pre></td></tr></table></figure>
+<p>类似<code>React.Children.map</code>，但是不返回数组。</p>
+<h3 id="React-Children-count"><a href="#React-Children-count" class="headerlink" title="React.Children.count"></a>React.Children.count</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.count(children)</div></pre></td></tr></table></figure>
+<p>返回<code>children</code>中组件总数，与<code>React.Children.forEach</code>和<code>React.Children.map</code>回掉函数执行次数一致。</p>
+<h3 id="React-Children-only"><a href="#React-Children-only" class="headerlink" title="React.Children.only"></a>React.Children.only</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.only(children)</div></pre></td></tr></table></figure>
+<p>返回<code>children</code>中唯一的子元素，否则抛出异常。</p>
+<h3 id="React-Children-toArray"><a href="#React-Children-toArray" class="headerlink" title="React.Children.toArray"></a>React.Children.toArray</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.toArray(children)</div></pre></td></tr></table></figure>
+<p>将<code>children</code>转换成扁平的数组结构并返回，并给每个子集都会附上<code>key</code>属性。<br>这个方法十分实用：在render函数中操作<code>children</code>集合，特别是对<code>this.props.children</code>重新排序。</p>
+<p>注：<br><code>React.Children.toArray()</code>改变了每个子集的<code>key</code>，用来保留子集的嵌套语义。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/09/React-Children/" data-id="ciz8icgc00005k00ajfpkfrd2" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/02/09/React-Children/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+    <article id="post-组件props类型校验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/09/组件props类型校验/" class="article-date">
+  <time datetime="2017-02-09T02:58:53.000Z" itemprop="datePublished">2017-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/组件props类型校验/">组件props类型校验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html" target="_blank" rel="external">Typechecking With PropTypes</a><br><a href="https://facebook.github.io/react/docs/react-api.html#react.proptypes" target="_blank" rel="external">React Top-Level API</a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>React.Prototypes</code>输出了一组校验器，用于组件的<code>propTypes</code>对象上，检测传入组件的<code>props</code>各项类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Greeting.propTypes = &#123;</div><div class="line">  <span class="attr">name</span>: React.PropTypes.string</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>为了提升性能，类型检测仅在开发模式有效。</p>
+<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><p>这是一个使用不同校验器的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">MyComponent.propTypes = &#123;</div><div class="line">  <span class="comment">// JS原始类型</span></div><div class="line">  optionalArray: React.PropTypes.array,</div><div class="line">  <span class="attr">optionalBool</span>: React.PropTypes.bool,</div><div class="line">  <span class="attr">optionalFunc</span>: React.PropTypes.func,</div><div class="line">  <span class="attr">optionalNumber</span>: React.PropTypes.number,</div><div class="line">  <span class="attr">optionalObject</span>: React.PropTypes.object,</div><div class="line">  <span class="attr">optionalString</span>: React.PropTypes.string,</div><div class="line">  <span class="attr">optionalSymbol</span>: React.PropTypes.symbol,</div><div class="line"></div><div class="line">  <span class="comment">// 任何可以被渲染的类型：数字, 字符串, 元素，或者由这些类型组成的数组或fragment</span></div><div class="line">  optionalNode: React.PropTypes.node,</div><div class="line"></div><div class="line">  <span class="comment">// React元素</span></div><div class="line">  optionalElement: React.PropTypes.element,</div><div class="line"></div><div class="line">  <span class="comment">// 类的实例</span></div><div class="line">  <span class="comment">// 使用JS的 instanceof 操作符</span></div><div class="line">  optionalMessage: React.PropTypes.instanceOf(Message),</div><div class="line"></div><div class="line">  <span class="comment">// 某个确定的值</span></div><div class="line">  <span class="comment">// 这是个枚举类型</span></div><div class="line">  optionalEnum: React.PropTypes.oneOf([<span class="string">'News'</span>, <span class="string">'Photos'</span>]),</div><div class="line"></div><div class="line">  <span class="comment">// 任意一种类型</span></div><div class="line">  optionalUnion: React.PropTypes.oneOfType([</div><div class="line">    React.PropTypes.string,</div><div class="line">    React.PropTypes.number,</div><div class="line">    React.PropTypes.instanceOf(Message)</div><div class="line">  ]),</div><div class="line"></div><div class="line">  <span class="comment">// 特定类型数据构成的数组</span></div><div class="line">  optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</div><div class="line"></div><div class="line">  <span class="comment">// 特定类型属性构成的对象</span></div><div class="line">  optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</div><div class="line"></div><div class="line">  <span class="comment">// 特定形式的对象</span></div><div class="line">  optionalObjectWithShape: React.PropTypes.shape(&#123;</div><div class="line">    <span class="attr">color</span>: React.PropTypes.string,</div><div class="line">    <span class="attr">fontSize</span>: React.PropTypes.number</div><div class="line">  &#125;),</div><div class="line"></div><div class="line">  <span class="comment">// 可以在以上任意校验器后链式添加`isRequired`，规定属性必填</span></div><div class="line">  requiredFunc: React.PropTypes.func.isRequired,</div><div class="line"></div><div class="line">  <span class="comment">// 任意类型，通常会加上`isRequired`</span></div><div class="line">  requiredAny: React.PropTypes.any.isRequired,</div><div class="line"></div><div class="line">  <span class="comment">// 自定义校验器。需要在校验失败时返回一个Error对象。</span></div><div class="line">  <span class="comment">// 不要使用`console.warn`或`throw`，因为这在`oneOfType`中无效。</span></div><div class="line">  customProp: <span class="function"><span class="keyword">function</span>(<span class="params">props, propName, componentName</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="regexp">/matchme/</span>.test(props[propName])) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</div><div class="line">        <span class="string">'Invalid prop `'</span> + propName + <span class="string">'` supplied to'</span> +</div><div class="line">        <span class="string">' `'</span> + componentName + <span class="string">'`. Validation failed.'</span></div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="comment">// 在`arrayOf`和`objectOf`中使用自定义校验器。</span></div><div class="line">  <span class="comment">// 需要在校验失败时返回一个Error对象。在遍历数组或对象的每一项时，会调用校验器。</span></div><div class="line">  <span class="comment">// 校验器前两个参数为数组或对象本身，以及当前项的key。</span></div><div class="line">  customArrayProp: React.PropTypes.arrayOf(<span class="function"><span class="keyword">function</span>(<span class="params">propValue, key, componentName, location, propFullName</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="regexp">/matchme/</span>.test(propValue[key])) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</div><div class="line">        <span class="string">'Invalid prop `'</span> + propFullName + <span class="string">'` supplied to'</span> +</div><div class="line">        <span class="string">' `'</span> + componentName + <span class="string">'`. Validation failed.'</span></div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="规定单个子元素"><a href="#规定单个子元素" class="headerlink" title="规定单个子元素"></a>规定单个子元素</h2><p>使用<code>React.PropTypes.element</code>限制组件的<code>children</code>仅能为单个元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">// 必须只有一个元素，否则会发出警告</span></div><div class="line">    <span class="keyword">const</span> children = <span class="keyword">this</span>.props.children;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">        &#123;children&#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MyComponent.propTypes = &#123;</div><div class="line">  <span class="attr">children</span>: React.PropTypes.element.isRequired</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p>设置组件的<code>defaultProps</code>，可以为<code>props</code>设置默认值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 为props定义默认值:</span></div><div class="line">Greeting.defaultProps = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Stranger'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 渲染 "Hello, Stranger":</span></div><div class="line">ReactDOM.render(</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Greeting</span> /&gt;</span>,</span></div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><code>propTypes</code>的类型检测发生在设置<code>defaultProps</code>之后，因此也会对默认值进行检测。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/09/组件props类型校验/" data-id="ciz8icgd00018k00a7mkeaa5y" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/02/09/组件props类型校验/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
     <article id="post-React中ref属性与DOM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/08/React中ref属性与DOM/" class="article-date">
@@ -102,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/React中ref属性与DOM/" data-id="ciywdb6fa0006qq0a28tza2in" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/React中ref属性与DOM/" data-id="ciz8icgcb000ck00a9uazbiv2" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/08/React中ref属性与DOM/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -154,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/React-Controlled-Components/" data-id="ciywdb6et0004qq0azmf5hb2j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/React-Controlled-Components/" data-id="ciz8icgc40006k00atjnr2iov" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/08/React-Controlled-Components/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -224,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/25/ReactDOM/" data-id="ciywdb6f10005qq0aj8mvmhh7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/25/ReactDOM/" data-id="ciz8icgc9000ak00af0jf4sx2" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/25/ReactDOM/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -321,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/25/React更新日志/" data-id="ciywdb6fl000aqq0alg0eusmk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/25/React更新日志/" data-id="ciz8icgce000hk00auteoh49x" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/25/React更新日志/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -367,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/09/烘焙材料准备技巧/" data-id="ciywdb6g5000tqq0a9er1hqq2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/09/烘焙材料准备技巧/" data-id="ciz8icgcz0015k00at70zztfu" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/09/烘焙材料准备技巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -431,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="ciywdb6ec0001qq0aujy8g2hz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="ciz8icgby0004k00auqqilswx" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/03/CSS布局实例汇总/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -492,7 +604,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="ciywdb6fq000cqq0axt1qw4rz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="ciz8icgcf000kk00a2sfr1uem" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2016/08/11/fisp中使用es6开发/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -572,224 +684,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="ciywdb6g8000wqq0ae38t2cfw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="ciz8icgcw0012k00alfjaswji" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/24/模块化开发/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requireJS/">requireJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
- 
-  
-    <article id="post-zepto中Ajax模块学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/23/zepto中Ajax模块学习/" class="article-date">
-  <time datetime="2015-10-23T05:47:40.000Z" itemprop="datePublished">2015-10-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在<a href="http://lizijie1993.github.io/2015/10/22/Ajax%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">Ajax学习笔记</a>中，已经了解了Ajax跨浏览器的解决方案，以及其基本流程。在此，对<a href="http://zeptojs.com/" target="_blank" rel="external">zepto.js</a>库中的Ajax模块进行初步了解，源码可以到官网去下载。</p>
-<h1 id="Ajax核心部分"><a href="#Ajax核心部分" class="headerlink" title="Ajax核心部分"></a>Ajax核心部分</h1><p>该模块中，我认为最关键的为两个部分<code>$.ajaxSettings</code>和<code>$.ajax</code>。</p>
-<h2 id="ajaxSettings"><a href="#ajaxSettings" class="headerlink" title="$.ajaxSettings"></a>$.ajaxSettings</h2><p><code>$.ajaxSettings</code>定义了Ajax的默认设置，包括请求方法、各阶段回调函数、允许的MIME类型等。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$.ajaxSettings = &#123;</div><div class="line">    <span class="comment">// Default type of request</span></div><div class="line">    type: <span class="string">'GET'</span>,</div><div class="line">    <span class="comment">// Callback that is executed before request</span></div><div class="line">    beforeSend: empty,</div><div class="line">    <span class="comment">// Callback that is executed if the request succeeds</span></div><div class="line">    success: empty,</div><div class="line">    <span class="comment">// Callback that is executed the the server drops error</span></div><div class="line">    error: empty,</div><div class="line">    <span class="comment">// Callback that is executed on request complete (both: error and success)</span></div><div class="line">    complete: empty,</div><div class="line">    <span class="comment">// The context for the callbacks</span></div><div class="line">    context: <span class="literal">null</span>,</div><div class="line">    <span class="comment">// Whether to trigger "global" Ajax events</span></div><div class="line">    global: <span class="literal">true</span>,</div><div class="line">    <span class="comment">// Transport</span></div><div class="line">    xhr: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">window</span>.XMLHttpRequest()</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// MIME types mapping</span></div><div class="line">    accepts: &#123;</div><div class="line">        <span class="attr">script</span>: <span class="string">'text/javascript, application/javascript'</span>,</div><div class="line">        <span class="attr">json</span>: jsonType,</div><div class="line">        <span class="attr">xml</span>: <span class="string">'application/xml, text/xml'</span>,</div><div class="line">        <span class="attr">html</span>: htmlType,</div><div class="line">        <span class="attr">text</span>: <span class="string">'text/plain'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// Whether the request is to another domain</span></div><div class="line">    crossDomain: <span class="literal">false</span>,</div><div class="line">    <span class="comment">// Default timeout</span></div><div class="line">    timeout: <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="ajax"><a href="#ajax" class="headerlink" title="$.ajax"></a>$.ajax</h2><p><code>$.ajax</code>方法，它是所有其他Ajax方法的底层实现，比如之后的<code>$.get</code>、<code>$.post</code>等。在此，我将源码拆分，一步一步进行分析：</p>
-<p>首先，是Ajax参数的设置。用户的设置覆盖默认设置，作为最终的设置。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> settings = $.extend(&#123;&#125;, options || &#123;&#125;)</div><div class="line"><span class="keyword">for</span> (key <span class="keyword">in</span> $.ajaxSettings)</div><div class="line">    <span class="keyword">if</span> (settings[key] === <span class="literal">undefined</span>) settings[key] = $.ajaxSettings[key]</div></pre></td></tr></table></figure>
-<p>对比设置中的url与当前页面url主机名，来判断是否跨域。（个人认为还需要检测协议与端口）</p>
-<p>如果设置的返回值类型<code>dataType</code>为<code>jsonp</code>，或者请求路径中含有<code>callback=?</code>，那么就通过jsonp获取数据。（注意，jsonp跟Ajax并没有关系）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!settings.crossDomain) settings.crossDomain = <span class="regexp">/^([\w-]+:)?\/\/([^\/]+)/</span>.test(settings.url) &amp;&amp;</div><div class="line">    <span class="built_in">RegExp</span>.$<span class="number">2</span> != <span class="built_in">window</span>.location.host</div><div class="line"></div><div class="line"><span class="keyword">var</span> dataType = settings.dataType,</div><div class="line">    hasPlaceholder = <span class="regexp">/=\?/</span>.test(settings.url)</div><div class="line"><span class="keyword">if</span> (dataType == <span class="string">'jsonp'</span> || hasPlaceholder) &#123;</div><div class="line">    <span class="keyword">if</span> (!hasPlaceholder) settings.url = appendQuery(settings.url, <span class="string">'callback=?'</span>)</div><div class="line">    <span class="keyword">return</span> $.ajaxJSONP(settings)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>serializeData</code>方法，会对<code>settings.data</code>（用户传递的数据）进行处理。若为<code>GET</code>方法，将会将其转换为正常的请求字符串，附在url后。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!settings.url) settings.url = <span class="built_in">window</span>.location.toString()</div><div class="line">serializeData(settings)</div></pre></td></tr></table></figure>
-<p>之后，根据各参数，创建一个请求头的对象。</p>
-<p>其中的<code>xhr.overrideMimeType</code>是XMLHttpRequest2的方法，用于在发送端指定接受内容的mime-type。可以避免客户端与服务器端编码不同，产生乱码的问题。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mime = settings.accepts[dataType],</div><div class="line">    baseHeaders = &#123;&#125;,</div><div class="line">    protocol = <span class="regexp">/^([\w-]+:)\/\//</span>.test(settings.url) ? <span class="built_in">RegExp</span>.$<span class="number">1</span> : <span class="built_in">window</span>.location.protocol,</div><div class="line">    xhr = $.ajaxSettings.xhr(),</div><div class="line">    abortTimeout</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!settings.crossDomain) baseHeaders[<span class="string">'X-Requested-With'</span>] = <span class="string">'XMLHttpRequest'</span></div><div class="line"><span class="keyword">if</span> (mime) &#123;</div><div class="line">    baseHeaders[<span class="string">'Accept'</span>] = mime</div><div class="line">    <span class="keyword">if</span> (mime.indexOf(<span class="string">','</span>) &gt; <span class="number">-1</span>) mime = mime.split(<span class="string">','</span>, <span class="number">2</span>)[<span class="number">0</span>]</div><div class="line">    xhr.overrideMimeType &amp;&amp; xhr.overrideMimeType(mime)</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (settings.contentType || (settings.data &amp;&amp; settings.type.toUpperCase() != <span class="string">'GET'</span>))</div><div class="line">    baseHeaders[<span class="string">'Content-Type'</span>] = (settings.contentType || <span class="string">'application/x-www-form-urlencoded'</span>)</div><div class="line">settings.headers = $.extend(baseHeaders, settings.headers || &#123;&#125;)</div></pre></td></tr></table></figure>
-<p>监听状态改变，设置回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</div><div class="line">        clearTimeout(abortTimeout)</div><div class="line">        <span class="keyword">var</span> result, error = <span class="literal">false</span></div><div class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span> || (xhr.status == <span class="number">0</span> &amp;&amp; protocol == <span class="string">'file:'</span>)) &#123;</div><div class="line">            dataType = dataType || mimeToDataType(xhr.getResponseHeader(<span class="string">'content-type'</span>))</div><div class="line">            result = xhr.responseText</div><div class="line"></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">if</span> (dataType == <span class="string">'script'</span>)(<span class="number">1</span>, <span class="built_in">eval</span>)(result)</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (dataType == <span class="string">'xml'</span>) result = xhr.responseXML</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (dataType == <span class="string">'json'</span>) result = blankRE.test(result) ? <span class="literal">null</span> : <span class="built_in">JSON</span>.parse(result)</div><div class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">                error = e</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (error) ajaxError(error, <span class="string">'parsererror'</span>, xhr, settings)</div><div class="line">            <span class="keyword">else</span> ajaxSuccess(result, xhr, settings)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ajaxError(<span class="literal">null</span>, <span class="string">'error'</span>, xhr, settings)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>建立连接，并设置请求头。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">async</span> = <span class="string">'async'</span> <span class="keyword">in</span> settings ? settings.async : <span class="literal">true</span></div><div class="line">xhr.open(settings.type, settings.url, <span class="keyword">async</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> (name <span class="keyword">in</span> settings.headers) xhr.setRequestHeader(name, settings.headers[name])</div></pre></td></tr></table></figure>
-<p>触发<code>beforeSend</code>事件与检测是否超时。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ajaxBeforeSend(xhr, settings) === <span class="literal">false</span>) &#123;</div><div class="line">    xhr.abort()</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (settings.timeout &gt; <span class="number">0</span>) abortTimeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    xhr.onreadystatechange = empty</div><div class="line">    xhr.abort()</div><div class="line">    ajaxError(<span class="literal">null</span>, <span class="string">'timeout'</span>, xhr, settings)</div><div class="line">&#125;, settings.timeout)</div></pre></td></tr></table></figure>
-<p>最后，发送数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// avoid sending empty string (#319)</span></div><div class="line">xhr.send(settings.data ? settings.data : <span class="literal">null</span>)</div><div class="line"><span class="keyword">return</span> xhr</div></pre></td></tr></table></figure>
-<p>可见，基本流程，依旧是：</p>
-<ol>
-<li>建立连接</li>
-<li>设置回调</li>
-<li>发送数据</li>
-</ol>
-<p>只是，在此基础上，增加了对数据的校验、对跨域的支持、添加请求头、增加各阶段触发的函数等，使整个Ajax请求更加健壮。</p>
-<h1 id="其余部分"><a href="#其余部分" class="headerlink" title="其余部分"></a>其余部分</h1><p><code>$.get</code>、<code>$.post</code>、<code>$.getJSON</code>、<code>$.fn.load</code>等均是以<code>$.ajax</code>为基础进行的简化抽象。</p>
-<p><code>ajaxStart</code>、<code>ajaxStop</code>、<code>ajaxBeforeSend</code>、<code>ajaxSuccess</code>、<code>ajaxError</code>、<code>ajaxComplete</code>则是对各个阶段触发的回调函数的封装。除触发用户设置的回调函数，还将触发设置在全局的对应的Ajax函数。</p>
-<p><code>$.ajaxJSONP</code>的原理并不基于Ajax，而是基于动态创建script标签。具体的，等之后总结跨域方法的时候再谈。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>只要明白了Ajax的基本流程，再去看各库中的Ajax部分，相信会轻松许多。如若本文有何错误及模糊的地方，恳请指正～</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/" data-id="ciywdb6fy000lqq0as7byzi4i" class="article-share-link">Share</a>
-      
-        <a href="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zepto/">zepto</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
- 
-  
-    <article id="post-Ajax学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/22/Ajax学习笔记/" class="article-date">
-  <time datetime="2015-10-22T14:20:00.000Z" itemprop="datePublished">2015-10-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h1><p>从字面意义来说，Ajax（Asynchronous JavaScript and XML）为异步的 JavaScript 和 XML利用。它并不是一种新的编程语言，而是<em>利用现有标准，无阻塞地与服务器进行数据交换</em>的方法。</p>
-<h1 id="不同浏览器的实现"><a href="#不同浏览器的实现" class="headerlink" title="不同浏览器的实现"></a>不同浏览器的实现</h1><h2 id="创建XMLHttpRequset对象"><a href="#创建XMLHttpRequset对象" class="headerlink" title="创建XMLHttpRequset对象"></a>创建XMLHttpRequset对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = createXHR();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> xhr;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequset)&#123;</div><div class="line">		xhr = <span class="keyword">new</span> XMLHttpRequset();</div><div class="line">	&#125;<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			<span class="comment">//IE6</span></div><div class="line">			xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">		&#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">			xhr = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> xhr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="请求的基本流程"><a href="#请求的基本流程" class="headerlink" title="请求的基本流程"></a>请求的基本流程</h2><ol>
-<li>建立连接</li>
-<li>设置回调</li>
-<li>发送数据</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建立连接</span></div><div class="line">xhr.open(method,url,<span class="keyword">async</span>);</div><div class="line"><span class="comment">//设置回调</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"><span class="comment">//发送数据</span></div><div class="line">xhr.send(string);</div></pre></td></tr></table></figure>
-<p>建立连接的method常用为<code>GET</code>，<code>POST</code>。</p>
-<p>当使用<code>POST</code>方法时，需要在<code>send()</code>前添加HTTP请求头。例如，若想像HTML表单那样POST数据，需要：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.setRequsetHeader(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</div><div class="line">xhr.send(<span class="string">'name=1&amp;age=18'</span>);</div></pre></td></tr></table></figure>
-<h2 id="监听当前状态"><a href="#监听当前状态" class="headerlink" title="监听当前状态"></a>监听当前状态</h2><p>通过<code>xhr.readyState</code>可当前状态，有以下几种：</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>状态</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>UNSENT (未打开)</td>
-<td>open()方法还未被调用.</td>
-</tr>
-<tr>
-<td>1</td>
-<td>OPENED  (未发送)</td>
-<td>send()方法还未被调用.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>HEADERS_RECEIVED (已获取响应头)</td>
-<td>send()方法已经被调用, 响应头和响应状态已经返回.</td>
-</tr>
-<tr>
-<td>3</td>
-<td>LOADING (正在下载响应体)</td>
-<td>响应体下载中; responseText中已经获取了部分数据.</td>
-</tr>
-<tr>
-<td>4</td>
-<td>DONE (请求完成)</td>
-<td>整个请求过程已经完毕.</td>
-</tr>
-</tbody>
-</table>
-<p>在此，我们主要关注4。</p>
-<p>通过<code>xhr.status</code>可获得响应的状态码，例如    200 表示成功的请求。</p>
-<p>每次请求状态发生改变，均会触发<code>onreadystatechange</code>，因此，在该回调中，通过判断<code>xhr.readyState</code>和<code>xhr.status</code>来执行不同的业务。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//请求成功</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'success!'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>请求成功后，若返回的数据格式为字符串，可通过<code>xhr.responseText</code>获得；若返回的数据格式为xml，可通过<code>xhr.responseXML</code>获得。</p>
-<h1 id="XMLHttpRequset-2-0"><a href="#XMLHttpRequset-2-0" class="headerlink" title="XMLHttpRequset 2.0"></a>XMLHttpRequset 2.0</h1><p>老版本缺点：</p>
-<ul>
-<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
-<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
-<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据。</li>
-</ul>
-<p>新版本功能：</p>
-<ul>
-<li>可以设置HTTP请求的时限。</li>
-<li>可以使用FormData对象管理表单数据。</li>
-<li>可以上传文件。</li>
-<li>可以请求不同域名下的数据（跨域请求）。</li>
-<li>可以获取服务器端的二进制数据。</li>
-<li>可以获得数据传输的进度信息。</li>
-</ul>
-<p>对于文件传输，我暂时还不太了解。目前我比较关注<em>进度信息</em>和<em>跨域请求</em>。</p>
-<h2 id="进度信息"><a href="#进度信息" class="headerlink" title="进度信息"></a>进度信息</h2><p>新版本的XMLHttpRequest对象，传送数据的时候，有一个progress事件，用来返回进度信息。它分成上传和下载两种情况。下载的progress事件属于XMLHttpRequest对象，上传的progress事件属于XMLHttpRequest.upload对象。<br>我们先定义progress事件的回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　xhr.onprogress = updateProgress;</div><div class="line">　　xhr.upload.onprogress = updateProgress;</div></pre></td></tr></table></figure>
-<p>然后，在回调函数里面，使用这个事件的一些属性。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateProgress</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (event.lengthComputable) &#123;</div><div class="line">		<span class="keyword">var</span> percentComplete = event.loaded / event.total;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的代码中，<code>event.total</code>是需要传输的总字节，<code>event.loaded</code>是已经传输的字节。如果<code>event.lengthComputable</code>不为真，则<code>event.total</code>等于0。</p>
-<p>与progress事件相关的，还有其他五个事件，可以分别指定回调函数：</p>
-<ul>
-<li>load事件：传输成功完成。</li>
-<li>abort事件：传输被用户取消。</li>
-<li>error事件：传输中出现错误。</li>
-<li>loadstart事件：传输开始。</li>
-<li>loadEnd事件：传输结束，但是不知道成功还是失败。</li>
-</ul>
-<h2 id="跨域请求——跨域资源共享（CORS）"><a href="#跨域请求——跨域资源共享（CORS）" class="headerlink" title="跨域请求——跨域资源共享（CORS）"></a>跨域请求——跨域资源共享（CORS）</h2><p>Ajax请求数据的时候，遵循同源策略。</p>
-<p>使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。</p>
-<p>服务器端对于CORS的支持，主要就是通过设置<code>Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。</p>
-<p>服务器端响应头需要设置的参数：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-<span class="string">Origin:</span><span class="string">http:</span><span class="comment">//a.com;</span></div><div class="line">Access-Control-Allow-<span class="string">Methods:</span>POST,GET;</div></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" target="_blank" rel="external">MDN XMLHttpRequest</a></p>
-<p><a href="http://www.cnblogs.com/yexiaochai/archive/2013/04/24/3037069.html" target="_blank" rel="external">【初窥javascript奥秘之Ajax】简述下你所知道的Ajax？</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html" target="_blank" rel="external">XMLHttpRequest Level 2 使用指南</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="ciywdb6e60000qq0ajhlgxml3" class="article-share-link">Share</a>
-      
-        <a href="http://yoursite.com/2015/10/22/Ajax学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
 
     </footer>
   </div>
@@ -811,7 +711,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -820,7 +720,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -838,7 +738,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -850,6 +750,14 @@
       <ul>
         
           <li>
+            <a href="/2017/02/09/React-Children/">React.Children</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/09/组件props类型校验/">组件props类型校验</a>
+          </li>
+        
+          <li>
             <a href="/2017/02/08/React中ref属性与DOM/">React中ref属性与DOM</a>
           </li>
         
@@ -859,14 +767,6 @@
         
           <li>
             <a href="/2017/01/25/ReactDOM/">ReactDOM</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/25/React更新日志/">React更新日志</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/09/烘焙材料准备技巧/">烘焙材料准备技巧</a>
           </li>
         
       </ul>

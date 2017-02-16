@@ -3,14 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | 无尽的边界</title>
+  <title>React.Children | 无尽的边界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="无尽的边界">
-<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+  <meta name="description" content="React Top-Level API
+React.ChildrenReact.Children提供一系列处理this.props.children的工具。
+React.Children.map1React.Children.map(children, function[(thisArg)])
+对children中每个直接子元素调用函数，thisArg指向这个元素。若children为有序片段或数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React.Children">
+<meta property="og:url" content="http://yoursite.com/2017/02/09/React-Children/index.html">
 <meta property="og:site_name" content="无尽的边界">
+<meta property="og:description" content="React Top-Level API
+React.ChildrenReact.Children提供一系列处理this.props.children的工具。
+React.Children.map1React.Children.map(children, function[(thisArg)])
+对children中每个直接子元素调用函数，thisArg指向这个元素。若children为有序片段或数">
+<meta property="og:updated_time" content="2017-02-16T14:50:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无尽的边界">
+<meta name="twitter:title" content="React.Children">
+<meta name="twitter:description" content="React Top-Level API
+React.ChildrenReact.Children提供一系列处理this.props.children的工具。
+React.Children.map1React.Children.map(children, function[(thisArg)])
+对children中每个直接子元素调用函数，thisArg指向这个元素。若children为有序片段或数">
   
     <link rel="alternative" href="/atom.xml" title="无尽的边界" type="application/atom+xml">
   
@@ -56,135 +69,93 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/24/模块化开发/" class="archive-article-date">
-  <time datetime="2015-10-24T11:00:06.000Z" itemprop="datePublished">Oct 24</time>
+        <section id="main"><article id="post-React-Children" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/09/React-Children/" class="article-date">
+  <time datetime="2017-02-09T07:10:03.000Z" itemprop="datePublished">2017-02-09</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/24/模块化开发/">模块化开发</a>
+    <h1 class="article-title" itemprop="name">
+      React.Children
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/23/zepto中Ajax模块学习/" class="archive-article-date">
-  <time datetime="2015-10-23T05:47:40.000Z" itemprop="datePublished">Oct 23</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/23/zepto中Ajax模块学习/">zepto中Ajax模块学习</a>
-    </h1>
-  
+        <p><a href="https://facebook.github.io/react/docs/react-api.html#react.children" target="_blank" rel="external">React Top-Level API</a></p>
+<h2 id="React-Children"><a href="#React-Children" class="headerlink" title="React.Children"></a>React.Children</h2><p><code>React.Children</code>提供一系列处理<code>this.props.children</code>的工具。</p>
+<h3 id="React-Children-map"><a href="#React-Children-map" class="headerlink" title="React.Children.map"></a>React.Children.map</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.map(children, function[(thisArg)])</div></pre></td></tr></table></figure>
+<p>对<code>children</code>中每个<em>直接</em>子元素调用函数，<code>thisArg</code>指向这个元素。若<code>children</code>为有序片段或数组则会遍历执行函数：不会传入容器对象到函数中。若<code>children</code>为<code>null</code>或<code>undefined</code>，则返回值为<code>null</code>或<code>undefined</code>，而非数组。</p>
+<h3 id="React-Children-forEach"><a href="#React-Children-forEach" class="headerlink" title="React.Children.forEach"></a>React.Children.forEach</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.forEach(children, function[(thisArg)])</div></pre></td></tr></table></figure>
+<p>类似<code>React.Children.map</code>，但是不返回数组。</p>
+<h3 id="React-Children-count"><a href="#React-Children-count" class="headerlink" title="React.Children.count"></a>React.Children.count</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.count(children)</div></pre></td></tr></table></figure>
+<p>返回<code>children</code>中组件总数，与<code>React.Children.forEach</code>和<code>React.Children.map</code>回掉函数执行次数一致。</p>
+<h3 id="React-Children-only"><a href="#React-Children-only" class="headerlink" title="React.Children.only"></a>React.Children.only</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.only(children)</div></pre></td></tr></table></figure>
+<p>返回<code>children</code>中唯一的子元素，否则抛出异常。</p>
+<h3 id="React-Children-toArray"><a href="#React-Children-toArray" class="headerlink" title="React.Children.toArray"></a>React.Children.toArray</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.Children.toArray(children)</div></pre></td></tr></table></figure>
+<p>将<code>children</code>转换成扁平的数组结构并返回，并给每个子集都会附上<code>key</code>属性。<br>这个方法十分实用：在render函数中操作<code>children</code>集合，特别是对<code>this.props.children</code>重新排序。</p>
+<p>注：<br><code>React.Children.toArray()</code>改变了每个子集的<code>key</code>，用来保留子集的嵌套语义。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/22/Ajax学习笔记/" class="archive-article-date">
-  <time datetime="2015-10-22T14:20:00.000Z" itemprop="datePublished">Oct 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/22/Ajax学习笔记/">Ajax学习笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/08/27/使用Hexo搭建blog/" class="archive-article-date">
-  <time datetime="2015-08-27T15:48:37.000Z" itemprop="datePublished">Aug 27</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/09/React-Children/" data-id="ciz8icgc00005k00ajfpkfrd2" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/使用Hexo搭建blog/">使用Hexo搭建blog</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/ubuntu常用软件安装记录/" class="archive-article-date">
-  <time datetime="2015-07-09T15:37:14.000Z" itemprop="datePublished">Jul 9</time>
-</a>
+        <a href="http://yoursite.com/2017/02/09/React-Children/#disqus_thread" class="article-comment-link">Comments</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/ubuntu常用软件安装记录/">ubuntu常用软件安装记录</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/08/grunt使用入门/" class="archive-article-date">
-  <time datetime="2015-07-07T16:04:19.000Z" itemprop="datePublished">Jul 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/grunt使用入门/">grunt使用入门</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/09/组件props类型校验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">组件props类型校验</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
-</section>
+
+ 
+  <section id="comments">
+    <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="2017/02/09/React-Children/" data-title="React.Children" data-url="http://yoursite.com/2017/02/09/React-Children/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lizijie1993"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  </section>
         
           <aside id="sidebar">
   
@@ -279,11 +250,13 @@
 <script>
   var disqus_shortname = 'bordersofinfinity';
   
+  var disqus_url = 'http://yoursite.com/2017/02/09/React-Children/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
