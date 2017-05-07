@@ -58,6 +58,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React顶层API" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/07/React顶层API/" class="article-date">
+  <time datetime="2017-05-07T15:55:09.000Z" itemprop="datePublished">2017-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/React顶层API/">React顶层API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://facebook.github.io/react/docs/react-api.html" target="_blank" rel="external">React Top-Level API
+</a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h3><p>React组件让你将UI拆分成独立、可复用的片段，能独立地思考各个片段。可以通过继承<code>React.Component</code>和<code>React.PureComponent</code>两个类创建React组件。</p>
+<ul>
+<li>React.Component</li>
+<li>React.PureComponent</li>
+</ul>
+<p>不使用ES6的<code>class</code>，则需要使用下面方法创建React组件：</p>
+<ul>
+<li>createClass()</li>
+</ul>
+<h2 id="创建React元素"><a href="#创建React元素" class="headerlink" title="创建React元素"></a>创建React元素</h2><p>推荐<a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank" rel="external">使用JSX</a>（React.createElement()语法糖），或者直接使用以下方法：</p>
+<ul>
+<li>createElement()</li>
+<li>createFactory()</li>
+</ul>
+<p>参考<a href="https://facebook.github.io/react/docs/react-without-jsx.html" target="_blank" rel="external">Use React Without JSX</a></p>
+<h2 id="修改元素"><a href="#修改元素" class="headerlink" title="修改元素"></a>修改元素</h2><ul>
+<li>cloneElement()</li>
+<li>isValidElement()</li>
+<li>React.Children</li>
+</ul>
+<h2 id="参考手册"><a href="#参考手册" class="headerlink" title="参考手册"></a>参考手册</h2><h3 id="React-Component"><a href="#React-Component" class="headerlink" title="React.Component"></a>React.Component</h3><p><code>React.Component</code>是使用ES6语法定义组件类时的基类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>查看<a href="https://facebook.github.io/react/docs/react-component.html" target="_blank" rel="external">React.Component API 参考手册</a>，了解更多基类的属性和方法。</p>
+<h3 id="React-PureComponent"><a href="#React-PureComponent" class="headerlink" title="React.PureComponent"></a>React.PureComponent</h3><p><code>React.PureComponent</code>类似<code>React.Component</code>，但实现了<code>shouldComponentUpdate()</code>，在该生命周期钩子中对<code>props</code>和<code>state</code>的浅比较，决定是否重新渲染组件。</p>
+<p>如果你的React组件的<code>render</code>方法，在<code>props</code>和<code>state</code>相同时返回同样的结果，那么你可以使用<code>React.PureComponent</code>提升性能。</p>
+<p>注释：<br><code>React.PureComponent</code>的<code>shouldComponentUpdate()</code>中仅做浅比较。如果<code>state</code>或<code>prop</code>中包含复杂的数据结构（如属性值为数组、对象等），将可能带来错误的比较结果。仅在确定数据结构简单时继承<code>React.PureComponent</code>，或在已知深层数据变动时手动调用<code>forceUpdate()</code>更新组件。也可以考虑使用<a href="https://facebook.github.io/immutable-js/" target="_blank" rel="external">immutable objects</a>来快速比较嵌套数据。</p>
+<p><code>React.PureComponent</code>的<code>shouldComponentUpdate()</code>将跳过整个子组件树的<code>prop</code>更新。请确保所有子组件是<em>纯净</em>的。</p>
+<h3 id="createClass"><a href="#createClass" class="headerlink" title="createClass()"></a>createClass()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.createClass(specification)</div></pre></td></tr></table></figure>
+<p>如果你没有使用ES6，你可能需要使用<code>React.createClass()</code>来创建React组件class。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Greeting = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="createElement"><a href="#createElement" class="headerlink" title="createElement()"></a>createElement()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">React.createElement(</div><div class="line">  type,</div><div class="line">  [props],</div><div class="line">  [...children]</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>创建并返回一个新的指定类型<code>type</code>的React元素。<code>type</code>参数可以是标签名字符串（如<code>’div’</code>或<code>’span’</code>），或者React组件的类型（class或function）。</p>
+<p>使用JSX编写的代码，最终会转化成调用<code>React.createElement()</code>的代码，你不用显示地调用<code>React.createElement()</code>。</p>
+<h3 id="cloneElement"><a href="#cloneElement" class="headerlink" title="cloneElement()"></a>cloneElement()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">React.cloneElement(</div><div class="line">  element,</div><div class="line">  [props],</div><div class="line">  [...children]</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>克隆React并返回一个新的React元素，该元素的props为<code>[props]</code>参数与<code>element</code>的props浅合并的结果。新的<code>[...children]</code>将替换原<code>children</code>。原element上的<code>key</code>和<code>ref</code>属性将保留。</p>
+<p><code>React.cloneElement()</code>写法等同于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;element.type &#123;...element.props&#125; &#123;...props&#125;&gt;&#123;children&#125;&lt;<span class="regexp">/element.type&gt;</span></div></pre></td></tr></table></figure>
+<p>它也会保留<code>ref</code>s。这意味着，如果得到一个有<code>ref</code>的子元素，你不会不小心从你的祖先偷走它。在新元素上会附有同样的<code>ref</code>。</p>
+<p>这个API用于替代废弃的<code>React.addons.cloneWithProps()</code>。</p>
+<h3 id="createFactory"><a href="#createFactory" class="headerlink" title="createFactory()"></a>createFactory()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.createFactory(type)</div></pre></td></tr></table></figure>
+<p>返回创建指定类型<code>type</code>的React元素的函数。类似<code>React.createElement()</code>，<code>type</code>可以是标签名字符串（如<code>’div’</code>或<code>’span’</code>），或者React组件的类型（class或function）。</p>
+<p>这个方法比较老旧，建议使用JSX或者<code>React.createElement()</code>代替。</p>
+<h3 id="isValidElement"><a href="#isValidElement" class="headerlink" title="isValidElement()"></a>isValidElement()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.isValidElement(object)</div></pre></td></tr></table></figure>
+<p>检验<code>object</code>是否是React元素。返回<code>true</code>或<code>false</code>。</p>
+<h2 id="React-children"><a href="#React-children" class="headerlink" title="React.children"></a>React.children</h2><p>见<a href="/2017/02/09/React-Children/">React.Children</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/07/React顶层API/" data-id="cj2evqwgp000j6z0akrat3r89" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/05/07/React顶层API/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
     <article id="post-麻婆豆腐" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/07/麻婆豆腐/" class="article-date">
@@ -104,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/07/麻婆豆腐/" data-id="cj2erpv1t0022a00a1p4le5qv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/07/麻婆豆腐/" data-id="cj2evqwhr00236z0a3nr3irj1" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/05/07/麻婆豆腐/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -157,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/01/农家小炒肉/" data-id="cj2erpv1g001ia00azzqcwgkt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/01/农家小炒肉/" data-id="cj2evqwhf001m6z0aw6jviakf" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/05/01/农家小炒肉/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -213,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/01/肉末臊子/" data-id="cj2erpv1o001va00aqtejb1dm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/01/肉末臊子/" data-id="cj2evqwhp00206z0af0jhi342" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/05/01/肉末臊子/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -274,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/01/干煸菜花/" data-id="cj2erpv1i001la00a6km4z1xp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/01/干煸菜花/" data-id="cj2evqwh8001c6z0agymdz53w" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/05/01/干煸菜花/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -394,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/30/favicon/" data-id="cj2erpv180014a00ay8h6aqv6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/30/favicon/" data-id="cj2evqwh100106z0a6yr1op6u" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/03/30/favicon/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -451,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/09/React-Children/" data-id="cj2erpv0n000ha00amhwfrkd4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/09/React-Children/" data-id="cj2evqwgk000c6z0ainquzex9" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/09/React-Children/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -506,7 +597,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/09/组件props类型校验/" data-id="cj2erpv1q001za00a27i00711" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/09/组件props类型校验/" data-id="cj2evqwhn001w6z0avtuwc3xf" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/09/组件props类型校验/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -564,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/React中ref属性与DOM/" data-id="cj2erpv0y000ua00agh1fgmzz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/React中ref属性与DOM/" data-id="cj2evqwgu000q6z0a87z8ke39" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/08/React中ref属性与DOM/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -616,7 +707,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/React-Controlled-Components/" data-id="cj2erpv0u000qa00aa055431i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/React-Controlled-Components/" data-id="cj2evqwgn000g6z0av3rvtvrx" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/02/08/React-Controlled-Components/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -630,79 +721,9 @@
 
  
   
-    <article id="post-ReactDOM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/25/ReactDOM/" class="article-date">
-  <time datetime="2017-01-25T15:45:01.000Z" itemprop="datePublished">2017-01-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/25/ReactDOM/">ReactDOM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://facebook.github.io/react/docs/react-dom.html" target="_blank" rel="external">ReactDOM</a></p>
-<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p><code>react-dom</code>包，提供了与DOM相关的一些方法。</p>
-<ul>
-<li>render</li>
-<li>unmountComponentAtNode</li>
-<li>findDOMNode</li>
-</ul>
-<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">    element,</div><div class="line">    container,</div><div class="line">    [callback]</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>将React元素（可以是DOM，也可以是React组件）渲染至<code>container</code>容器内（原生DOM），并返回该React元素的引用（无状态组件的返回值为<code>null</code>）。<br>如果React元素已经渲染至<code>container</code>，则根据diff算法更新内容。<br>可选的<code>callback</code>函数在组件渲染或更新后触发。</p>
-<p>注意：</p>
-<ul>
-<li>初次渲染，会替换掉<code>container</code>中的内容</li>
-<li>该方法不会修改<code>container</code>元素，只会修改其内容</li>
-<li>该方法会返回React元素的引用（若为React组件，则返回根元素的引用），但不建议使用。建议在根元素上使用<code>ref</code>回调函数，保存该元素的引用。</li>
-</ul>
-<h2 id="unmountComponentAtNode"><a href="#unmountComponentAtNode" class="headerlink" title="unmountComponentAtNode"></a>unmountComponentAtNode</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactDOM.unmountComponentAtNode(container)</div></pre></td></tr></table></figure>
-<p>从DOM中移除container内挂载的React组件，并清除它的事件和状态。若container内没有React组件，什么都不做。</p>
-<p>返回值：有组件时，返回true；否则，返回false。</p>
-<h2 id="findDOMNode"><a href="#findDOMNode" class="headerlink" title="findDOMNode()"></a>findDOMNode()</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactDOM.findDOMNode(component)</div></pre></td></tr></table></figure>
-<p>用于查找<code>component</code>组件的原生DOM节点，返回值为该组件的根DOM节点。大部分情况建议在元素或组件上使用<code>ref</code>。</p>
-<p>注意：</p>
-<ul>
-<li>不能用于函数式组件</li>
-<li><code>component</code>未挂载时，该方法会报错</li>
-<li>当组件<code>component</code>的<code>render</code>函数返回<code>null</code>或<code>false</code>时，该方法返回<code>null</code></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/25/ReactDOM/" data-id="cj2erpv0s000na00a6a4v1l1v" class="article-share-link">Share</a>
-      
-        <a href="http://yoursite.com/2017/01/25/ReactDOM/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
- 
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -713,7 +734,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -722,7 +743,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/favicon/">favicon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家常菜/">家常菜</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/川菜/">川菜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炒菜/">炒菜</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调料/">调料</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/favicon/">favicon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家常菜/">家常菜</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/川菜/">川菜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炒菜/">炒菜</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调料/">调料</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -740,7 +761,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -750,6 +771,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/07/React顶层API/">React顶层API</a>
+          </li>
         
           <li>
             <a href="/2017/05/07/麻婆豆腐/">麻婆豆腐</a>
@@ -765,10 +790,6 @@
         
           <li>
             <a href="/2017/05/01/干煸菜花/">干煸菜花</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/30/favicon/">Favicon</a>
           </li>
         
       </ul>

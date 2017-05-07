@@ -58,6 +58,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ReactDOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/25/ReactDOM/" class="article-date">
+  <time datetime="2017-01-25T15:45:01.000Z" itemprop="datePublished">2017-01-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/25/ReactDOM/">ReactDOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://facebook.github.io/react/docs/react-dom.html" target="_blank" rel="external">ReactDOM</a></p>
+<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p><code>react-dom</code>包，提供了与DOM相关的一些方法。</p>
+<ul>
+<li>render</li>
+<li>unmountComponentAtNode</li>
+<li>findDOMNode</li>
+</ul>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">    element,</div><div class="line">    container,</div><div class="line">    [callback]</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>将React元素（可以是DOM，也可以是React组件）渲染至<code>container</code>容器内（原生DOM），并返回该React元素的引用（无状态组件的返回值为<code>null</code>）。<br>如果React元素已经渲染至<code>container</code>，则根据diff算法更新内容。<br>可选的<code>callback</code>函数在组件渲染或更新后触发。</p>
+<p>注意：</p>
+<ul>
+<li>初次渲染，会替换掉<code>container</code>中的内容</li>
+<li>该方法不会修改<code>container</code>元素，只会修改其内容</li>
+<li>该方法会返回React元素的引用（若为React组件，则返回根元素的引用），但不建议使用。建议在根元素上使用<code>ref</code>回调函数，保存该元素的引用。</li>
+</ul>
+<h2 id="unmountComponentAtNode"><a href="#unmountComponentAtNode" class="headerlink" title="unmountComponentAtNode"></a>unmountComponentAtNode</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactDOM.unmountComponentAtNode(container)</div></pre></td></tr></table></figure>
+<p>从DOM中移除container内挂载的React组件，并清除它的事件和状态。若container内没有React组件，什么都不做。</p>
+<p>返回值：有组件时，返回true；否则，返回false。</p>
+<h2 id="findDOMNode"><a href="#findDOMNode" class="headerlink" title="findDOMNode()"></a>findDOMNode()</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactDOM.findDOMNode(component)</div></pre></td></tr></table></figure>
+<p>用于查找<code>component</code>组件的原生DOM节点，返回值为该组件的根DOM节点。大部分情况建议在元素或组件上使用<code>ref</code>。</p>
+<p>注意：</p>
+<ul>
+<li>不能用于函数式组件</li>
+<li><code>component</code>未挂载时，该方法会报错</li>
+<li>当组件<code>component</code>的<code>render</code>函数返回<code>null</code>或<code>false</code>时，该方法返回<code>null</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/25/ReactDOM/" data-id="cj2evqwgr000n6z0atf2e95tw" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/25/ReactDOM/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
     <article id="post-React更新日志" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/25/React更新日志/" class="article-date">
@@ -172,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/25/React更新日志/" data-id="cj2erpv0p000ja00aqz5nh3ou" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/25/React更新日志/" data-id="cj2evqwgw000u6z0a6144c1m7" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/25/React更新日志/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -218,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/09/烘焙材料准备技巧/" data-id="cj2erpv1m001sa00avnnlktja" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/09/烘焙材料准备技巧/" data-id="cj2evqwhl001t6z0al5wgz4tl" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/09/烘焙材料准备技巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -282,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="cj2erpv0k000da00a6unqi8uj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/03/CSS布局实例汇总/" data-id="cj2evqwge00066z0ahbwuefmk" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/03/CSS布局实例汇总/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -343,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="cj2erpv10000xa00a6h1tcu64" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/11/fisp中使用es6开发/" data-id="cj2evqwgy000x6z0af6rx3uor" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2016/08/11/fisp中使用es6开发/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -423,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="cj2erpv1l001pa00ag5ntmoxq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/模块化开发/" data-id="cj2evqwhj001q6z0a608xyfhz" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/24/模块化开发/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -501,7 +571,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/" data-id="cj2erpv1e001ea00ao9gwvf1d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/" data-id="cj2evqwhc001j6z0akd8tcu6d" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/23/zepto中Ajax模块学习/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -635,7 +705,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="cj2erpv0i000aa00a2316r5uv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/22/Ajax学习笔记/" data-id="cj2evqwgj000a6z0auf6we6mh" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/10/22/Ajax学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -757,7 +827,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/27/使用Hexo搭建blog/" data-id="cj2erpv1c001ba00aziuyae41" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/27/使用Hexo搭建blog/" data-id="cj2evqwha001f6z0a8t6p2lyt" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/27/使用Hexo搭建blog/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -837,7 +907,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/" data-id="cj2erpv130010a00abjzro101" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/" data-id="cj2evqwh300146z0a9z73zl09" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/09/ubuntu常用软件安装记录/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -851,113 +921,9 @@
 
  
   
-    <article id="post-grunt使用入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/08/grunt使用入门/" class="article-date">
-  <time datetime="2015-07-07T16:04:19.000Z" itemprop="datePublished">2015-07-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/08/grunt使用入门/">grunt使用入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在项目中，为了简化代码合并、压缩的流程，接触了Grunt。一入Grunt深似海，以后不用手动粘贴代码，再用软件或者在线工具压缩后另存为文件了！当然，这只是Grunt的一小部分作用~在此记录Grunt的使用。</p>
-<h1 id="什么是Grunt？"><a href="#什么是Grunt？" class="headerlink" title="什么是Grunt？"></a>什么是Grunt？</h1><blockquote>
-<p>Grunt 是一个基于任务的JavaScript工程命令行构建工具。一句话：自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。</p>
-</blockquote>
-<h1 id="Grunt使用"><a href="#Grunt使用" class="headerlink" title="Grunt使用"></a>Grunt使用</h1><p><a href="http://www.gruntjs.net/" title="Grunt中文网" target="_blank" rel="external">Grunt中文网</a>有详细的教程，在这里，我只以CSS、Javascript文件合并与压缩做个简单的入门实例，方便以后查阅。</p>
-<h2 id="实例前的准备"><a href="#实例前的准备" class="headerlink" title="实例前的准备"></a>实例前的准备</h2><p>Grunt和 Grunt 插件是通过 npm 安装并管理的，npm是 Node.js 的包管理器。</p>
-<ol>
-<li>首先安装 node.js，直接去<a href="https://nodejs.org/" title="node.js" target="_blank" rel="external">node.js官网</a>下载即可;</li>
-<li>安装 npm 。node.js包会集成 npm，因此不用手动安装，可以在系统的命令行中输入<code>npm -v</code>查看。为了使用Grunt，最好将 npm 更新至最新版本，输入<code>npm upgrade -g npm</code>即可（windows需要管理员模式，linux需要sudo等）；</li>
-<li><p>将Grunt命令行（CLI）安装到全局环境中 <code>npm install -g grunt-cli</code>。</p>
-<blockquote>
-<p>注意，安装grunt-cli并不等于安装了 Grunt！Grunt CLI的任务很简单：<strong>调用</strong>与Gruntfile在同一目录中 Grunt。这样带来的好处是，允许你在同一个系统上同时安装多个版本的 Grunt。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="CSS、Javascript文件合并压缩实例"><a href="#CSS、Javascript文件合并压缩实例" class="headerlink" title="CSS、Javascript文件合并压缩实例"></a>CSS、Javascript文件合并压缩实例</h2><ol>
-<li><p>在项目根目录新建package.json文件，该文件列出了项目的相关信息及所需的依赖（可以通过<code>npm init</code>命令创建）。结构类似如下：</p>
- <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-project-name"</span>,</div><div class="line">    <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</div><div class="line">    <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">        <span class="attr">"grunt"</span>: <span class="string">"~0.4.5"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-jshint"</span>: <span class="string">"~0.10.0"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-nodeunit"</span>: <span class="string">"~0.4.1"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-uglify"</span>: <span class="string">"~0.5.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装Grunt和Grunt插件。<code>npm install &lt;module&gt; --save-dev</code></p>
-<blockquote>
-<p>此命令不光安装了<module>，还会自动将其添加到 <em>devDependencies</em> 配置段中，遵循tilde version range格式。</module></p>
-</blockquote>
-<p> 本例中需要使用上述方式安装 <em>grunt</em> 、 <em>grunt-contrib-cssmin</em> （用于合并、压缩CSS）及 <em>grunt-contrib-concat</em>、<em>grunt-contrib-uglify</em>（用于合并、压缩JS）。将会得到以下 <em>package.json</em>:</p>
- <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"demo"</span>,</div><div class="line">    <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">    <span class="attr">"author"</span>: <span class="string">"lizijie1993@gmail.com"</span>,</div><div class="line">    <span class="attr">"description"</span>: <span class="string">"demo"</span>,</div><div class="line">    <span class="attr">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">    <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">        <span class="attr">"grunt"</span>: <span class="string">"^0.4.5"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-concat"</span>: <span class="string">"^0.5.1"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-cssmin"</span>: <span class="string">"^0.12.3"</span>,</div><div class="line">        <span class="attr">"grunt-contrib-uglify"</span>: <span class="string">"^0.9.1"</span></div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>创建Gruntfile文件。该文件同 <em>package.json</em>一同放在根目录。由以下四个部分构成：</p>
-<ul>
-<li>“wrapper”函数</li>
-<li>项目与任务配置</li>
-<li>加载grunt插件和任务</li>
-<li><p>自定义任务</p>
-<p>3.1 编写”wrapper”函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//wrapper函数</span></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>)</span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.2 项目与任务配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//wrapper函数</span></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>)</span>&#123;</div><div class="line">    <span class="comment">//项目与任务配置</span></div><div class="line">    grunt.initConfig(&#123;</div><div class="line">        <span class="attr">pkg</span>:grunt.file.readJSON(<span class="string">'package.json'</span>),<span class="comment">//将存储在package.json文件中的JSON元数据引入到grunt config中</span></div><div class="line">        concat:&#123;</div><div class="line">            <span class="attr">options</span>:&#123;</div><div class="line">                <span class="comment">//定义一个用于插入合并输出文件之间的字符</span></div><div class="line">                separator:<span class="string">'\n'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">jsFile</span>:&#123;<span class="comment">//任务名称可随意</span></div><div class="line">                <span class="comment">//将要合并的文件</span></div><div class="line">                src:[<span class="string">'js/**/*.js'</span>],<span class="comment">// /**/为任意路径</span></div><div class="line">                <span class="comment">// 合并后的JS文件的存放位置</span></div><div class="line">                dest: <span class="string">'js/&lt;%= pkg.name %&gt;.js'</span><span class="comment">//&lt;%= %&gt;可以引入配置文件的各值</span></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">uglify</span>:&#123;</div><div class="line">            <span class="attr">options</span>: &#123;</div><div class="line">             <span class="attr">banner</span>: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("dd-mm-yyyy") %&gt; */\n'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">jsFile</span>:&#123;</div><div class="line">                <span class="attr">files</span>:&#123;</div><div class="line">                    <span class="string">'js/&lt;%= pkg.name %&gt;.min.js'</span>:[<span class="string">'&lt;%= concat.jsFile.dest %&gt;'</span>]<span class="comment">//另一种指定源路径与目标路径的方法</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">cssmin</span>:&#123;<span class="comment">//cssmin插件配置</span></div><div class="line">            options:&#123;<span class="comment">//插件的选项</span></div><div class="line">                rebase:<span class="literal">true</span>,<span class="comment">//合并CSS后，是否重新计算路径</span></div><div class="line">                target:<span class="string">'css/cssmin'</span><span class="comment">//以该路径为基准，计算CSS中的路径</span></div><div class="line">            &#125;,</div><div class="line">            <span class="comment">//CSS文件合并</span></div><div class="line">            concat:&#123;</div><div class="line">                <span class="attr">files</span>:&#123;</div><div class="line">                    <span class="string">'&lt;%= cssmin.options.target %&gt;/all.css'</span>: [<span class="string">'css/*.css'</span>]</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            <span class="comment">//CSS文件压缩</span></div><div class="line">            minify: &#123;</div><div class="line">                <span class="attr">files</span>: [&#123;</div><div class="line">                    <span class="attr">expand</span>: <span class="literal">true</span>,</div><div class="line">                    <span class="attr">cwd</span>: <span class="string">'&lt;%= cssmin.options.target %&gt;'</span>, <span class="comment">//源文件路径</span></div><div class="line">                    src: [<span class="string">'*.css'</span>, <span class="string">'!*.min.css'</span>],<span class="comment">//文件类型</span></div><div class="line">                    dest: <span class="string">'&lt;%= cssmin.options.target %&gt;'</span>, <span class="comment">//目标文件路径</span></div><div class="line">                    ext: <span class="string">'.min.css'</span></div><div class="line">                &#125;]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>3.3 加载所需的Grunt插件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//加载grunt插件</span></div><div class="line">grunt.loadNpmTasks(<span class="string">'grunt-contrib-concat'</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">'grunt-contrib-cssmin'</span>);</div></pre></td></tr></table></figure>
-<p>3.4 设置任务</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置任务</span></div><div class="line"><span class="comment">//只需在命令行上输入"grunt"，就会执行default task</span></div><div class="line">grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'cssmin'</span>, <span class="string">'concat'</span>, <span class="string">'uglify'</span>]);</div><div class="line"><span class="comment">//在命令行上输入"grunt jsmin"，就会执行jsmin task。</span></div><div class="line">grunt.registerTask(<span class="string">'jsmin'</span>, [<span class="string">'concat'</span>, <span class="string">'uglify'</span>]);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>命令行进入项目根目录，使用输入 <code>grunt</code> 即可完成css、js的合并与压缩~</p>
-</li>
-</ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>合并文件时，如果要保证文件的顺序，需要依次手动指定文件，如：<code>src:[&#39;a.js&#39;,&#39;b.js&#39;,&#39;c.js&#39;]</code>；</li>
-<li>任务命名时，不要和任务配置中的名字相同，否则会出错，如 <code>grunt.registerTask(&#39;cssmin&#39;,[&#39;cssmin&#39;])</code>。</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Grunt使用过程可以总结为：</p>
-<ol>
-<li>软件安装，包括 Node.js 、npm 、grunt-cli；</li>
-<li>编写 package.json，安装grunt及grunt插件；</li>
-<li>编写 gruntfile.js；</li>
-<li>命令行进入项目根目录，运行grunt。</li>
-</ol>
-<p>使用Grunt，重点在于Grunt插件的使用，需参考插件的相关文档。利用 Grunt 自动化构建工具完成重复性工作，能极大地节省时间。</p>
-<p>本人新手一枚，如有错误，恳请指正。</p>
-<p>本文为原创文章，欢迎大力转载，但请保留原出处</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/08/grunt使用入门/" data-id="cj2erpv1a0018a00a8t3c4qer" class="article-share-link">Share</a>
-      
-        <a href="http://yoursite.com/2015/07/08/grunt使用入门/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grunt/">grunt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建工具/">构建工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
- 
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -968,7 +934,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -977,7 +943,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/favicon/">favicon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家常菜/">家常菜</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/川菜/">川菜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炒菜/">炒菜</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调料/">调料</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/favicon/">favicon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fisp/">fisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requireJS/">requireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家常菜/">家常菜</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/川菜/">川菜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/布局/">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炒菜/">炒菜</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/烘焙/">烘焙</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调料/">调料</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -995,7 +961,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -1005,6 +971,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/07/React顶层API/">React顶层API</a>
+          </li>
         
           <li>
             <a href="/2017/05/07/麻婆豆腐/">麻婆豆腐</a>
@@ -1020,10 +990,6 @@
         
           <li>
             <a href="/2017/05/01/干煸菜花/">干煸菜花</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/30/favicon/">Favicon</a>
           </li>
         
       </ul>
