@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>如何最大化利用Javascript console | 无尽的边界</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">如何最大化利用Javascript console</h1><a id="logo" href="/.">无尽的边界</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">如何最大化利用Javascript console</h1><div class="post-meta">Jun 26, 2017<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a href="/2017/06/26/如何最大化利用Javascript-console/#comments" class="ds-thread-count cloud-tie-join-count"><span style="font-size: 15px; color: #6E7173;" class="join-count">0</span><span> 条参与</span></a><div class="post-content"><h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>本文提取<a href="https://medium.freecodecamp.com/how-to-get-the-most-out-of-the-javascript-console-b57ca9db3e6d" title="How to get the most out of the JavaScript console" target="_blank" rel="external">此文</a>内容，以便于使用时查询，同时参考了<a href="https://developer.mozilla.org/en/docs/Web/API/console" title="Web API Console" target="_blank" rel="external">Web API Console</a>。</p>
+<p>原文测试使用FireFox，本文使用Chrome测试，版本为58.0.3029.110 (64-bit)</p>
+<h2 id="4种打印字符串方式"><a href="#4种打印字符串方式" class="headerlink" title="4种打印字符串方式"></a>4种打印字符串方式</h2><p>4种语义、默认视觉效果不同的字符串打印方式</p>
+<ul>
+<li>log</li>
+<li>info</li>
+<li>warn</li>
+<li>error</li>
+</ul>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/4_string_output.png" alt="4种打印字符串方式"></p>
+<h2 id="格式符"><a href="#格式符" class="headerlink" title="格式符"></a>格式符</h2><p>一般用于固定的某类提示输出的格式，在框架中经常可见，例如React中：</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/react_warning_formatter.png" alt="React warning formatter"></p>
+<table>
+<thead>
+<tr>
+<th>格式符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%s</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>%d, %i</code></td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td><code>%o, %O</code></td>
+<td>对象</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>为输出应用CSS样式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s字符串格式符"><a href="#s字符串格式符" class="headerlink" title="%s字符串格式符"></a><code>%s</code>字符串格式符</h3><p><img src="/2017/06/26/如何最大化利用Javascript-console/str_spec.png" alt="字符串格式符"></p>
+<h3 id="d-i整数格式符"><a href="#d-i整数格式符" class="headerlink" title="%d, %i整数格式符"></a><code>%d, %i</code>整数格式符</h3><p><img src="/2017/06/26/如何最大化利用Javascript-console/int_spec.png" alt="整数格式符"></p>
+<h3 id="f浮点数格式符"><a href="#f浮点数格式符" class="headerlink" title="%f浮点数格式符"></a><code>%f</code>浮点数格式符</h3><p>Chrome中<strong>不支持</strong>设置精度。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/float_spec.png" alt="浮点数格式符"></p>
+<h3 id="o-O对象格式符"><a href="#o-O对象格式符" class="headerlink" title="%o, %O对象格式符"></a><code>%o, %O</code>对象格式符</h3><p><img src="/2017/06/26/如何最大化利用Javascript-console/object_spec.png" alt="对象格式符"></p>
+<h3 id="c为输出应用CSS样式"><a href="#c为输出应用CSS样式" class="headerlink" title="%c为输出应用CSS样式"></a><code>%c</code>为输出应用CSS样式</h3><p><img src="/2017/06/26/如何最大化利用Javascript-console/console_apply_css.png" alt="为输出应用CSS样式"></p>
+<h2 id="其他有用功能"><a href="#其他有用功能" class="headerlink" title="其他有用功能"></a>其他有用功能</h2><p><strong>注意：</strong>方法可能并未统一标准，因此在不同浏览器中有不同的使用方式。</p>
+<h3 id="Assert"><a href="#Assert" class="headerlink" title="Assert"></a>Assert</h3><p><code>console.assert(arg1, arg2)</code>。当<code>arg1</code>为<code>false</code>时，打印<code>arg2</code>。可以用于替换<code>if</code>条件语句。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.assert.png" alt="console.assert"></p>
+<h3 id="Dir"><a href="#Dir" class="headerlink" title="Dir"></a>Dir</h3><p><code>console.dir(object)</code>。以列表形式，打印传入对象的属性、方法。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.dir.png" alt="console.dir"></p>
+<h3 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h3><p><code>console.table([array|object])</code>。以表格形式，展示数组或对象的键值对。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.table.png" alt="console.table([array])"></p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.table_obj.png" alt="console.table([object])"></p>
+<h3 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h3><p><code>console.group</code>结合<code>console.groupEnd</code>，为<code>console</code>分组，树形视觉效果。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.group.png" alt="console.group"></p>
+<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p><code>console.time</code>结合<code>console.timeEnd</code>，可用于测量代码执行时间。</p>
+<p><img src="/2017/06/26/如何最大化利用Javascript-console/console.time.png" alt="console.time"></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://blog.lizijie.site/2017/06/26/如何最大化利用Javascript-console/" data-id="cj4e76gfb001o54fybjqoobyj" class="article-share-link">分享</a><div class="tags"><a href="/tags/javascript/">javascript</a></div><div class="post-nav"><a href="/2017/05/07/React顶层API/" class="next">React顶层API</a></div><div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div><script>var cloudTieConfig = {
+  url: document.location.href,
+  productKey: "691ca33658a346a5a494b95aa46754a2",
+  target: "cloud-tie-wrapper"
+};</script><script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/favicon/" style="font-size: 15px;">favicon</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/家常菜/" style="font-size: 15px;">家常菜</a> <a href="/tags/炒菜/" style="font-size: 15px;">炒菜</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/布局/" style="font-size: 15px;">布局</a> <a href="/tags/构建工具/" style="font-size: 15px;">构建工具</a> <a href="/tags/fisp/" style="font-size: 15px;">fisp</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/软件/" style="font-size: 15px;">软件</a> <a href="/tags/grunt/" style="font-size: 15px;">grunt</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/模块化/" style="font-size: 15px;">模块化</a> <a href="/tags/requireJS/" style="font-size: 15px;">requireJS</a> <a href="/tags/烘焙/" style="font-size: 15px;">烘焙</a> <a href="/tags/调料/" style="font-size: 15px;">调料</a> <a href="/tags/川菜/" style="font-size: 15px;">川菜</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/如何最大化利用Javascript-console/">如何最大化利用Javascript console</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/React顶层API/">React顶层API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/麻婆豆腐/">麻婆豆腐</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/01/农家小炒肉/">农家小炒肉</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/01/肉末臊子/">肉末臊子</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/01/干煸菜花/">干煸菜花</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/30/favicon/">Favicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/React-Children/">React.Children</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/组件props类型校验/">组件props类型校验</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/08/React中ref属性与DOM/">React中ref属性与DOM</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">无尽的边界.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
